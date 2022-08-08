@@ -2,7 +2,7 @@ class Solution {
 public:
     int countVowelPermutation(int n) {
         // test
-        vector<vector<long long>> dp(n, vector<long long>(5,0));
+        vector<vector<long>> dp(n, vector<long>(5,0));
         auto modulo = 1000000007;
         for (auto i = 0; i < 5; ++i) {
             dp[0][i] = 1;
