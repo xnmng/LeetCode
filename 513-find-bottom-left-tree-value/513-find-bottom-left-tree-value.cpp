@@ -12,24 +12,15 @@
 class Solution {
 public:
     int findBottomLeftValue(TreeNode* root) {
-        auto ans{root->val};
+        auto ans{root};
         queue<TreeNode*> q;
         q.push(root);
         while (!q.empty()) {
-            ans = q.front()->val;
-            queue<TreeNode*> next;
-            while (!q.empty()) {
-                auto cur{q.front()};
-                q.pop();
-                if (cur->left) {
-                    next.push(cur->left);
-                }
-                if (cur->right) {
-                    next.push(cur->right);
-                }
-            }
-            q = next;
+            ans = q.front();
+            q.pop();
+            if (ans->right) q.push(ans->right);
+            if (ans->left) q.push(ans->left);
         }
-        return ans;
+        return ans->val;
     }
 };
