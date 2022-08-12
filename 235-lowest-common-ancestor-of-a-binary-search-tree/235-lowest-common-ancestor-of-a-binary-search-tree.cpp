@@ -14,7 +14,7 @@ public:
         if (root->val > p->val && root->val > q->val) {
             if (root->left) return lowestCommonAncestor(root->left, p, q);
         }        
-        if (root->val < p->val && root->val < q->val) {
+        else if (root->val < p->val && root->val < q->val) {
             if (root->right) return lowestCommonAncestor(root->right, p, q);
         }
         return root;
