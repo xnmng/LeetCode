@@ -7,8 +7,6 @@ public:
         unordered_map<string, int> wordsFreq;
         for (auto w : words) ++wordsFreq[w];
         
-        // if (s.empty() || words.empty() || words.size() * wordLen > s.size()) return ;
-        
         for (auto a = 0; a < wordLen; ++a) {
             // cout << "new iteration\n";
             unordered_map<string, int> curFreq;
