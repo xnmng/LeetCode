@@ -8,93 +8,35 @@ class Solution {
     }
 public:
     int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
-        unordered_set<string> s;
-        for (auto& i : wordList) {
-            s.insert(i);
-        }
+        unordered_set<string> s(wordList.begin(), wordList.end());
         if (s.find(endWord) == s.end()) return 0;
         
-        queue<string> q;
-        q.push(beginWord);
-
-        auto depth{1};
-        auto curWord{beginWord};
-
-        while (!q.empty()) {
-            unordered_set<string> next;
-            while (!q.empty()) {
-                curWord = q.front();
-                q.pop();
-                s.erase(curWord);
-                // cout << depth << " " << depthSize << " " << curWord << "\n";
-
-                if (curWord == endWord) return depth;
-                for (auto word : s) {
-                    if (helper(curWord, word, curWord.size())) {
-                        next.insert(word);
+        unordered_set<string> set;
+        unordered_set<string> next;
+        set.insert(beginWord);
+        auto ans{1};
+        auto n{beginWord.size()};
+        
+        while (!set.empty()) {
+            for (auto e : set) {
+                if (e == endWord) return ans;
+                
+                for (auto i : s) {
+                    if (helper(e, i, n)) {
+                        next.insert(i);
                     }
                 }
             }
-            
             for (auto i : next) {
-                q.push(i);
                 s.erase(i);
             }
-            ++depth;
-        }
+            set = next;
+            next.clear();
+            ++ans;
+        }    
         return 0;
-    }
+    };
 };
-
-// class Solution {
-//     bool helper(const string& s1, const string& s2, int len) {
-//         auto diff{0};
-//         for (auto i = 0; i < len; ++i) {
-//             if (s1[i] != s2[i]) ++diff;
-//         }
-//         return diff == 1;
-//     }
-// public:
-//     int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
-//         unordered_set<string> s;
-//         auto hasEndWord{false};
-//         for (auto& i : wordList) {
-//             s.insert(i);
-//         }
-//         if (s.find(endWord) == s.end()) return 0;
-        
-//         queue<string> q;
-//         q.push(beginWord);
-        
-//         auto depth{1};
-//         auto depthSize{1};
-//         auto curWord{beginWord};
-        
-//         while (!q.empty()) {
-//             curWord = q.front();
-//             q.pop();
-//             s.erase(curWord);
-//             // cout << depth << " " << depthSize << " " << curWord << "\n";
-
-//             if (curWord == endWord) return depth;    
-//             vector<string> sVec{s.begin(), s.end()};
-            
-//             for (auto word : sVec) {
-//                 if (helper(curWord, word, curWord.size())) {
-//                     q.push(word);
-//                     s.erase(word);
-//                 }
-//             }
-            
-//             --depthSize;            
-//             if (depthSize == 0) {
-//                 ++depth;
-//                 depthSize = q.size();
-//             }
-//         }
-//         return 0;
-//     }
-// };
 
 // "nanny"
 // "aloud"
