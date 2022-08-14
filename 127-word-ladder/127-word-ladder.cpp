@@ -25,6 +25,7 @@ public:
         while (!q.empty()) {
             curWord = q.front();
             q.pop();
+            s.erase(curWord);
             // cout << depth << " " << depthSize << " " << curWord << "\n";
 
             if (curWord == endWord) return depth;    
