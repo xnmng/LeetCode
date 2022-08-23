@@ -30,7 +30,9 @@ public:
     //     return true;
     // }
     
-    // O(n) time, O(1) space (no modification)
+    // O(n) time 
+    //     (3 pass; 1 to find middle, 1/2 to reverse, 1 to check, 1/2 to restore),
+    // O(1) space (with modification)
     ListNode* reverse(ListNode* head) {
         if (!head) return nullptr;
         auto ptr{head->next};
