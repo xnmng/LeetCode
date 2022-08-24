@@ -1,3 +1,6 @@
+// https://leetcode.com/problems/smallest-value-of-the-rearranged-number/discuss/1748511/Sort-and-Swap
+// (sort and swap (for positive num))
+
 class Solution {
 public:
     long long smallestNumber(long long num) {
