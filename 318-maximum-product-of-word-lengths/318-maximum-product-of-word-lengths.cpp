@@ -1,14 +1,4 @@
 class Solution {
-    // bool helper(string& s1, string& s2) {
-    //     vector<int> v(26, 0);
-    //     for (auto i : s1) {
-    //         ++v[i - 'a'];
-    //     }
-    //     for (auto i : s2) {
-    //         if (v[i - 'a'] > 0) return false;
-    //     }
-    //     return true;
-    // }
 public:
     int maxProduct(vector<string>& words) {
         vector<int> v;
