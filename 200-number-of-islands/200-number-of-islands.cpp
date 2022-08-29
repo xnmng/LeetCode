@@ -1,13 +1,13 @@
 class Solution {
-    void dfs(vector<vector<char>>& grid, int i, int j, vector<vector<int>>& v) {
-        if (i >= grid.size() || j >= grid[0].size() || v[i][j] == 1) return;
+    void dfs(vector<vector<char>>& grid, int i, int j) {
+        if (i >= grid.size() || j >= grid[0].size() || grid[i][j] == '0') return;
         // cout << i << " " << j << "\n";
         if (grid[i][j] == '1') {
             grid[i][j] = '0';
-            dfs(grid, i+1, j, v);
-            dfs(grid, i, j+1, v);
-            dfs(grid, i-1, j, v);
-            dfs(grid, i, j-1, v);
+            dfs(grid, i+1, j);
+            dfs(grid, i, j+1);
+            dfs(grid, i-1, j);
+            dfs(grid, i, j-1);
         }
     }
 public:
@@ -17,8 +17,7 @@ public:
             for (auto j = 0; j < grid[0].size(); ++j) {
                 if (grid[i][j] == '1') {
                     ++ans;
-                    vector<vector<int>> v(grid.size(), vector<int>(grid[0].size(), 0));
-                    dfs(grid, i, j, v);
+                    dfs(grid, i, j);
                 }
             } 
         }
