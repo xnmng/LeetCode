@@ -5,3 +5,6 @@ public:
         return (s+s).find(goal) != string::npos;
     }
 };
+
+// "aa"
+// "a"
