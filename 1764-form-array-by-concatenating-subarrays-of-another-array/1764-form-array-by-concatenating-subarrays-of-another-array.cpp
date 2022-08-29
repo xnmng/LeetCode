@@ -1,5 +1,5 @@
 class Solution {
-    bool matches(vector<int>& nums, int index, vector<int> v) {
+    bool matches(vector<int>& nums, int index, vector<int>& v) {
         if (index + v.size() > nums.size()) return false;
         for (auto i = 0; i < v.size(); ++i) {
             if (nums[index+i] != v[i]) return false;
