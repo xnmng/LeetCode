@@ -16,6 +16,8 @@ public:
     void checkOut(int id, string stationName, int t) {
         string path{custStart[id] + " " + stationName};
         int duration{t - custTime[id]};
+        custStart.erase(id);
+        custTime.erase(id);
         totalDuration[path] += duration;
         ++count[path];
     }
