@@ -1,19 +1,19 @@
-// hashmap solution is essentially brute force (will TLE for large test cases)
+// hashmap solution (for searching words) is essentially brute force (will TLE for large test cases)
 
 class WordDictionary {
-    vector<WordDictionary*> next;
+    WordDictionary* arr[26]{};
     bool isWord;
 public:
-    WordDictionary() : next(26, nullptr), isWord(false) {}
+    WordDictionary() : isWord(false) {}
     
     void addWord(string word) {
         auto index{0};
         auto cur{this};
         while (index < word.size()) {
-            if (cur->next[word[index] - 'a'] == nullptr) {
-                cur->next[word[index] - 'a'] = new WordDictionary();
+            if (cur->arr[word[index] - 'a'] == nullptr) {
+                cur->arr[word[index] - 'a'] = new WordDictionary();
             }
-            cur = cur->next[word[index] - 'a'];            
+            cur = cur->arr[word[index] - 'a'];            
             ++index;
         }
         cur->isWord = true;
@@ -27,12 +27,13 @@ private:
         while (index < word.size()) {
             if (word[index] == '.') {
                 for (auto i = 0; i < 26; ++i) {
-                    if (cur->next[i] && find(word, index+1, cur->next[i])) return true;
+                    if (cur->arr[i]
+                        && find(word, index+1, cur->arr[i])) return true;
                 }
                 return false;
             }
-            else if (cur->next[word[index] - 'a'] == nullptr) return false;
-            cur = cur->next[word[index] - 'a'];            
+            else if (!cur->arr[word[index] - 'a']) return false;
+            cur = cur->arr[word[index]- 'a'];            
             ++index;
         }
         
