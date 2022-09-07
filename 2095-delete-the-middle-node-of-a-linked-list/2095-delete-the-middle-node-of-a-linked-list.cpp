@@ -15,11 +15,10 @@ public:
             // delete head;
             return nullptr;
         }
-        auto fast{head};
+        auto fast{head->next->next}; // dont initialize this same as slow!
         auto slow{head};
-        while (fast->next 
-               && fast->next->next 
-               && fast->next->next->next) {
+        while (fast 
+               && fast->next) {
             fast = fast->next->next;
             slow = slow->next;
         }
