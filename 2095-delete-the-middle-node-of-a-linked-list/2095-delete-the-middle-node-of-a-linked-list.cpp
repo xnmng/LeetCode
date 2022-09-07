@@ -12,7 +12,7 @@ class Solution {
 public:
     ListNode* deleteMiddle(ListNode* head) {
         if (!head->next) {
-            delete head;
+            // delete head;
             return nullptr;
         }
         auto fast{head};
@@ -25,7 +25,7 @@ public:
         }
         auto toDel{slow->next};
         slow->next = slow->next->next;
-        delete toDel;
+        // delete toDel;
         return head;
     }
 };
