@@ -17,7 +17,9 @@ public:
         }
         auto fast{head};
         auto slow{head};
-        while (fast->next && fast->next->next && fast->next->next->next) {
+        while (fast->next 
+               && fast->next->next 
+               && fast->next->next->next) {
             fast = fast->next->next;
             slow = slow->next;
         }
