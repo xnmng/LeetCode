@@ -29,3 +29,6 @@ public:
 // sort by first value, if same, sort by largest second value 
 // (to get larger interval in front of smaller interval with same first value)
 // [[1,2],[1,4],[3,4]]
+// [[1,2],[1,3]]
+// [[1,3],[1,8],[5,8]]
+// [[1,6],[4,6],[4,8]]
