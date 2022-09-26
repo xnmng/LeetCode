@@ -5,10 +5,8 @@ private:
         auto ans{0};
         for (auto i : nums) {
             if (i <= size) continue;
-            ans += (i / size);
-            if (i % size == 0) --ans;
+            i % size == 0 ? ans += i/size - 1 : ans += i/size;
         }
-        // cout << size << " " << ans << "\n";
         return ans <= maxOperations;
     }
 public:
