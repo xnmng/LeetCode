@@ -7,7 +7,7 @@ private:
                 dominoes[i] = 'L';
             }
         }
-        if (prev == 'R' && cur == 'L') {
+        else if (prev == 'R' && cur == 'L') {
             while (prevIndex < curIndex) {
                 dominoes[prevIndex] = 'R';
                 dominoes[curIndex] = 'L';
@@ -15,7 +15,7 @@ private:
                 --curIndex;
             }
         }
-        if (prev == cur) {
+        else if (prev == cur) {
             for (auto i = prevIndex; i < curIndex; ++i) {
                 dominoes[i] = prev;
             }
