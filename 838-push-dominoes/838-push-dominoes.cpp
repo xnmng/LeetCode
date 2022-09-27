@@ -1,4 +1,4 @@
-// 2 pointers method (constant space, modifying input)
+// 2 pointers method (constant space, modifying input), consider different possible cases!
 class Solution {
 private:
     void helper(string& dominoes, char prev, int prevIndex, char cur, int curIndex) {
