@@ -19,19 +19,19 @@ public:
             auto y{q.front().second};
             auto val{ans[x][y]};
             q.pop();
-            if (x+1 < m && ans[x+1][y] == -1) {
+            if (x+1 < m && ans[x+1][y] < 0) {
                 ans[x+1][y] = 1 + val;
                 q.emplace(x+1, y);      
             }
-            if (x-1 >= 0 && ans[x-1][y] == -1) {
+            if (x-1 >= 0 && ans[x-1][y] < 0) {
                 ans[x-1][y] = 1 + val;
                 q.emplace(x-1, y);
             }
-            if (y+1 < n && ans[x][y+1] == -1) {
+            if (y+1 < n && ans[x][y+1] < 0) {
                 ans[x][y+1] = 1 + val;
                 q.emplace(x, y+1);
             }
-            if (y-1 >= 0 && ans[x][y-1] == -1) {
+            if (y-1 >= 0 && ans[x][y-1] < 0) {
                 ans[x][y-1] = 1 + val;
                 q.emplace(x, y-1);
             }
