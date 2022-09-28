@@ -17,8 +17,8 @@ public:
         while (!q.empty()) {
             auto x{q.front().first};
             auto y{q.front().second};
-            q.pop();
             auto val{ans[x][y]};
+            q.pop();
             if (x+1 < m && ans[x+1][y] == -1) {
                 ans[x+1][y] = 1 + val;
                 q.emplace(x+1, y);      
