@@ -10,6 +10,7 @@ public:
             for (auto j = 0; j < n; ++j) {
                 if (isWater[i][j] == 1) {
                     q.emplace(i, j);
+                    ans[i][j] = 0;
                 }
             }
         }
@@ -20,18 +21,21 @@ public:
                 auto x{q.front().first};
                 auto y{q.front().second};
                 q.pop();
-                if (ans[x][y] != -1) continue;
-                ans[x][y] = val;
+                if (ans[x][y] != val) continue;
                 if (x+1 < m && ans[x+1][y] == -1) {
+                    ans[x+1][y] = 1 + val;
                     next.emplace(x+1, y);      
                 }
                 if (x-1 >= 0 && ans[x-1][y] == -1) {
+                    ans[x-1][y] = 1 + val;
                     next.emplace(x-1, y);
                 }
                 if (y+1 < n && ans[x][y+1] == -1) {
+                    ans[x][y+1] = 1 + val;
                     next.emplace(x, y+1);
                 }
                 if (y-1 >= 0 && ans[x][y-1] == -1) {
+                    ans[x][y-1] = 1 + val;
                     next.emplace(x, y-1);
                 }
             }
