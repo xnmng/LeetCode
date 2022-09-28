@@ -8,7 +8,7 @@ public:
         vector<vector<int>> ans(m, vector<int>(n, -1));
         for (auto i = 0; i < m; ++i) {
             for (auto j = 0; j < n; ++j) {
-                if (isWater[i][j] == 1) {
+                if (isWater[i][j]) {
                     q.emplace(i, j);
                     ans[i][j] = 0;
                 }
