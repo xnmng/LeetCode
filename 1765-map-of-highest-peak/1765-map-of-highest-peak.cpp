@@ -14,13 +14,13 @@ public:
                 }
             }
         }
-        auto val{0};
         while (!q.empty()) {
             queue<pair<int,int>> next;
             while (!q.empty()) {
                 auto x{q.front().first};
                 auto y{q.front().second};
                 q.pop();
+                auto val{ans[x][y]};
                 if (ans[x][y] != val) continue;
                 if (x+1 < m && ans[x+1][y] == -1) {
                     ans[x+1][y] = 1 + val;
@@ -40,7 +40,6 @@ public:
                 }
             }
             q = next;
-            ++val;
         }
         return ans;
     }
