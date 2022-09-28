@@ -15,31 +15,31 @@ public:
             }
         }
         while (!q.empty()) {
-            queue<pair<int,int>> next;
-            while (!q.empty()) {
+            // queue<pair<int,int>> next;
+            // while (!q.empty()) {
                 auto x{q.front().first};
                 auto y{q.front().second};
                 q.pop();
                 auto val{ans[x][y]};
-                if (ans[x][y] != val) continue;
+                // if (ans[x][y] != val) continue;
                 if (x+1 < m && ans[x+1][y] == -1) {
                     ans[x+1][y] = 1 + val;
-                    next.emplace(x+1, y);      
+                    q.emplace(x+1, y);      
                 }
                 if (x-1 >= 0 && ans[x-1][y] == -1) {
                     ans[x-1][y] = 1 + val;
-                    next.emplace(x-1, y);
+                    q.emplace(x-1, y);
                 }
                 if (y+1 < n && ans[x][y+1] == -1) {
                     ans[x][y+1] = 1 + val;
-                    next.emplace(x, y+1);
+                    q.emplace(x, y+1);
                 }
                 if (y-1 >= 0 && ans[x][y-1] == -1) {
                     ans[x][y-1] = 1 + val;
-                    next.emplace(x, y-1);
+                    q.emplace(x, y-1);
                 }
-            }
-            q = next;
+            // }
+            // q = next;
         }
         return ans;
     }
