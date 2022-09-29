@@ -9,7 +9,7 @@ public:
             if (cond) {
                 right > left ? --right : ++left;
             }
-            else if (abs(arr[right] - x) > abs(arr[left] - x)) { // |right - x| > |left - x|
+            else if (abs(arr[right] - x) > abs(arr[left] - x)) {
                 --right;
             } else {
                 ++left;
