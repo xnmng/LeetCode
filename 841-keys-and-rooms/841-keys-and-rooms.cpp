@@ -11,7 +11,9 @@ public:
             if (v.find(cur) != v.end()) continue;
             v.insert(cur);
             for (auto i : rooms[cur]) {
-                q.push(i);
+                if (v.find(i) == v.end()) {
+                    q.push(i);                
+                }
             }
         }
         return v.size() == rooms.size();
