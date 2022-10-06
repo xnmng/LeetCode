@@ -18,6 +18,8 @@
 
 // not sure why my implementation of binary search is incorrect...
 
+// https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/discuss/1142841/c-with-lower_boundupper_bound-implementation
+
 class TimeMap {
 private:
     unordered_map<string, vector<pair<int,string>>> mp; // {timestamp, value}
