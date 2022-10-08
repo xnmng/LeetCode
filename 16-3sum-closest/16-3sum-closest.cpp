@@ -6,10 +6,12 @@ public:
         sort(nums.begin(), nums.end());
         auto ans{nums[0] + nums[1] + nums[2]};
         auto last{static_cast<int>(nums.size()-1)};
+        int left;
+        int right;
         for (auto i = 0; i < nums.size()-2; ++i) {
             if (ans == target) return target;
-            auto left{i+1};
-            auto right{last};
+            left = i+1;
+            right = last;
             while (left < right) {
                 if (abs(ans - target) > abs(target - nums[i] - nums[left] - nums[right])) {
                     ans = nums[i] + nums[left] + nums[right];
