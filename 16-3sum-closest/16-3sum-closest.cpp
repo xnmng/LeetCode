@@ -14,7 +14,7 @@ public:
                 if (abs(ans - target) > abs(target - nums[i] - nums[left] - nums[right])) {
                     ans = nums[i] + nums[left] + nums[right];
                 }
-                if (nums[i] + nums[left] + nums[right] > target) {
+                if (nums[i] + nums[left] + nums[right] - target > 0) {
                     --right;
                 } else {
                     ++left;
