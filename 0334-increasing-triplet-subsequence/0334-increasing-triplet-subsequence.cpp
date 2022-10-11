@@ -1,4 +1,5 @@
 // https://leetcode.com/problems/increasing-triplet-subsequence/discuss/78993/Clean-and-short-with-comments-C++
+// https://leetcode.com/problems/increasing-triplet-subsequence/discuss/79004/Concise-Java-solution-with-comments.
 
 // maxn are the BEST candidates for the subsequence of size n NOT the actual candidates!
 class Solution {
