@@ -15,7 +15,7 @@ public:
             else if (max2 == -1 || nums[i] <= nums[max2]) {
                 max2 = i;
             }
-            else if (nums[max2] < nums[i]) return true;
+            else return true;
         }
         return false;
     }
