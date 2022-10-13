@@ -14,13 +14,14 @@ public:
             cur = q.front();
             q.pop();
             if (s.find(cur) != s.end()) continue;
+            if (cur == destination) return true;
             // cout << cur << "\n";
             s.insert(cur);
             for (auto i : adjList[cur]) {
                 q.push(i);
             }
         }
-        return s.find(destination) != s.end();
+        return false;
     }
 };
 
