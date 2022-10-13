@@ -7,17 +7,17 @@ public:
             adjList[min(i[0], i[1])].push_back(max(i[0], i[1]));
             adjList[max(i[0], i[1])].push_back(min(i[0], i[1]));
         }
-        unordered_set<int> s;
+        vector<bool> v(n, false);
         queue<int> q;
         q.push(source);
         int cur;
         while (!q.empty()) {
             cur = q.front();
             q.pop();
-            if (s.find(cur) != s.end()) continue;
+            if (v[cur]) continue;
             if (cur == destination) return true;
             // cout << cur << "\n";
-            s.insert(cur);
+            v[cur] = true;
             for (auto i : adjList[cur]) {
                 q.push(i);
             }
