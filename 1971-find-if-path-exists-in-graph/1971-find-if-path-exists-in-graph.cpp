@@ -1,6 +1,7 @@
 class Solution {
 public:
     bool validPath(int n, vector<vector<int>>& edges, int source, int destination) {
+        if (source == destination) return true;
         vector<vector<int>> adjList(n);
         for (auto i : edges) {
             adjList[min(i[0], i[1])].push_back(max(i[0], i[1]));
