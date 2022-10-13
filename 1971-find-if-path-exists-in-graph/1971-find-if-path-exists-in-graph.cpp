@@ -4,8 +4,8 @@ public:
         if (source == destination) return true;
         vector<vector<int>> adjList(n);
         for (auto i : edges) {
-            adjList[min(i[0], i[1])].push_back(max(i[0], i[1]));
-            adjList[max(i[0], i[1])].push_back(min(i[0], i[1]));
+            adjList[i[0]].push_back(i[1]);
+            adjList[i[1]].push_back(i[0]);
         }
         vector<bool> v(n, false);
         queue<int> q;
@@ -31,3 +31,8 @@ public:
 // [[4,3],[1,4],[4,8],[1,7],[6,4],[4,2],[7,4],[4,0],[0,9],[5,4]]
 // 5
 // 9
+// 10
+// [[2,9],[7,8],[5,9],[7,2],[3,8],[2,8],[1,6],[3,0],[7,0],[8,5]]
+// 1
+// 0
+// https://leetcode.com/submissions/detail/821341850/
