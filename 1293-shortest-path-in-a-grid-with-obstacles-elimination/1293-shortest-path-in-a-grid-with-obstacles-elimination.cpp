@@ -1,17 +1,10 @@
 // https://youtu.be/ID9YJXy3OJk
 class Solution {
-private:
-
 public:
     int shortestPath(vector<vector<int>>& grid, int k) {
         auto m{grid.size()};
         auto n{grid[0].size()};
         vector<vector<vector<int>>> memo(m, vector<vector<int>>(n, vector<int>(k+1, 0)));
-//         cout << m << " " << n << " " << k << "\n";
-//         cout << memo.size() << " " << memo[0].size() << " " << memo[0][0].size() << "\n";
-        
-//         cout << memo[0][0][1] << "\n";
-        
         queue<tuple<int,int,int>> q; // x, y, kLeft
         q.emplace(0, 0, k);
         auto ans{0};
@@ -23,9 +16,6 @@ public:
                 --count;
                 if (x+1 == m && y+1 == n) return ans;
                 if (memo[x][y][r] == 1) continue;
-                // cout << "ok\n";
-                // cout << x << " " << y << " " << r << "\n";
-                
                 memo[x][y][r] = 1;
                 
                 if (x+1 < m) {
