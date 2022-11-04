@@ -17,7 +17,7 @@ public:
         auto left{0};
         auto right{static_cast<int>(s.size()-1)};
         while (left <= right) {
-            cout << left << " " << right << "\n";
+            // cout << left << " " << right << "\n";
             if (isVowel(s[left]) && isVowel(s[right])) {
                 swap(s[left], s[right]);
                 ++left;
