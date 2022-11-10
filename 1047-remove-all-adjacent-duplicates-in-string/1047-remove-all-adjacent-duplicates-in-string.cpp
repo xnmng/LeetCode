@@ -2,7 +2,7 @@ class Solution {
 public:
     string removeDuplicates(string s) {
         deque<char> d;
-        for (auto i : s) {
+        for (auto& i : s) {
             if (d.empty() || d.back() != i) {
                 d.push_back(i);
             } else {
