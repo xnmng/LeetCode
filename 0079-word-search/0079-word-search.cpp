@@ -2,7 +2,8 @@ class Solution {
 private:
     bool dfs(vector<vector<char>>& board, int i, int j, string& word, int index) {
         if (board[i][j] != word[index]) return false;
-        if (index+1 == word.size()) return true;
+        // need to take into account the case where board only as big as word; cannot go into next and return there
+        if (index+1 == word.size()) return true; 
         auto cur{board[i][j]};
         board[i][j] = '*';
         if (i+1 < board.size()) {
