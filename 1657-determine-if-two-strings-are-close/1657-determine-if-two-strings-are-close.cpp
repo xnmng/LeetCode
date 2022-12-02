@@ -10,14 +10,14 @@ public:
             ++mp2[word2[i]];
         }
         unordered_map<int,int> mp;
-        unordered_set<char> s;
+        vector<char> v1(26);
         for (auto& [k,v] : mp1) {
             ++mp[v];
-            s.insert(k);
+            v1[k - 'a'] = 1;
         }
         for (auto& [k,v] : mp2) {
             --mp[v];
-            if (s.insert(k).second) return false;
+            if (v1[k - 'a'] == 0) return false;
         }
         for (auto& [k,v] : mp) {
             if (v != 0) return false;
