@@ -4,14 +4,12 @@ public:
     bool closeStrings(string word1, string word2) {
         vector<int> v1(26);
         vector<int> v2(26);
-        vector<int> c1(26);
         for (auto i : word1) {
             ++v1[i - 'a'];
-            c1[i - 'a'] = 1;
         }
         for (auto i : word2) {
             ++v2[i - 'a'];
-            if (!c1[i - 'a']) return false;
+            if (v1[i - 'a'] == 0) return false;
         }
         sort(v1.begin(), v1.end());
         sort(v2.begin(), v2.end());
