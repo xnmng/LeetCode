@@ -1,27 +1,20 @@
+// https://leetcode.com/problems/determine-if-two-strings-are-close/discuss/935920/C++-Short-and-Simple-oror-O(-N-)-solution
 class Solution {
 public:
     bool closeStrings(string word1, string word2) {
-        if (word1.size() != word2.size()) return false;
-        auto n{word1.size()};
-        unordered_map<char,int> mp1;
-        unordered_map<char,int> mp2;
-        for (auto i = 0; i < n; ++i) {
-            ++mp1[word1[i]];
-            ++mp2[word2[i]];
+        vector<int> v1(26);
+        vector<int> v2(26);
+        vector<int> c1(26);
+        for (auto i : word1) {
+            ++v1[i - 'a'];
+            c1[i - 'a'] = 1;
         }
-        unordered_map<int,int> mp;
-        vector<char> v1(26);
-        for (auto& [k,v] : mp1) {
-            ++mp[v];
-            v1[k - 'a'] = 1;
+        for (auto i : word2) {
+            ++v2[i - 'a'];
+            if (!c1[i - 'a']) return false;
         }
-        for (auto& [k,v] : mp2) {
-            --mp[v];
-            if (v1[k - 'a'] == 0) return false;
-        }
-        for (auto& [k,v] : mp) {
-            if (v != 0) return false;
-        }
-        return true;
+        sort(v1.begin(), v1.end());
+        sort(v2.begin(), v2.end());
+        return v1 == v2;
     }
 };
