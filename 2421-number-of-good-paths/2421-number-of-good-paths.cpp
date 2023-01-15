@@ -14,6 +14,7 @@ private:
         v[x] = find(v[x], v);
         return v[x]; 
     }
+    
 public:
     int numberOfGoodPaths(vector<int>& vals, vector<vector<int>>& edges) {
         vector<vector<int>> adjList(vals.size());   // adj. list
