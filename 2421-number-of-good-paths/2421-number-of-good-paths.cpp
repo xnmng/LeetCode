@@ -1,12 +1,11 @@
 class Solution {
 private:
-    int join(int x, int y, vector<int>& v, vector<int>& r) {
-        if (x > y) return join(y, x, v, r);
+    int join(int x, int y, vector<int>& v) {
+        if (x > y) return join(y, x, v);
         auto xp{find(x, v)};
         auto yp{find(y, v)};
         if (xp == yp) return xp;
         v[yp] = xp;
-        // cout << "join " << yp << " to " << xp << "\n";
         return yp;
     }
     
@@ -24,7 +23,6 @@ public:
         }
         
         vector<int> v(vals.size(), -1);             // union-find DS
-        vector<int> r(vals.size());                 // rank DS
         map<int, vector<int>> mp;                   // nodes we need to process for each unique value
         
         for (auto i = 0; i < vals.size(); ++i) {
@@ -34,34 +32,17 @@ public:
         int val;
         for (auto& [k, ls] : mp) {
             unordered_map<int,int> mp2;
-            // cout << "process: ";
             for (auto j : ls) {
-                // cout << j << " ";
                 for (auto k : adjList[j]) {
-                    join(j, k, v, r);
+                    join(j, k, v);
                 }
             }
-            // cout << "\n";
             for (auto j : ls) {
                 val = find(j, v);
-                // cout << "parent of " << j << " is " << val << "\n";
                 ++mp2[val];
                 ans += mp2[val];
-                // cout << "node: " << j << " -> " << mp2[val] << "\n";
             }
         }
-            
-        // for (auto i : v) {
-        //     cout << i << " ";
-        // }
-        // cout << "\n";
-        // for (auto i = 0; i < v.size(); ++i) {
-        //     cout << i << " ";
-        // }
-        // cout << "\n";
         return ans;
     }
 };
-
-// O(nlogn) time
-// O(n) space
