@@ -27,7 +27,7 @@ public:
                 if (cur->right) next.push(cur->right);
             }
             swap(q, next);
-            ans.push_back(move(v));
+            ans.push_back((v));
         }
         reverse(ans.begin(), ans.end());
         return ans;
