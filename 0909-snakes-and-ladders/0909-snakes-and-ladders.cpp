@@ -1,3 +1,5 @@
+// if youre currently on a square with snake/ladder, you must still roll the dice!
+// https://youtu.be/6lH4nO3JfLk
 class Solution {
 private:
     // given x (current board square), returns the respective coordinate in board
