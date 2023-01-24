@@ -1,7 +1,7 @@
 // dp[i][j] := does the string from [0..i] and pattern from [0..j], match?
 
 // dp[0][0] = true
-// dp[i][0] = true only if p[0] == *
+// dp[0][j] = dp[0][j-1] only if p[j] == *
 
 // if p[j] == '.', dp[i][j] = dp[i-1][j-1]
 // if p[j] == s[i], dp[i][j] = dp[i-1][j-1]
