@@ -17,7 +17,7 @@ public:
         
         dp[0][0] = true;
         for (auto i = 1; i <= n && p[i-1] == '*'; ++i) {
-            dp[0][i] = true;
+            dp[0][i] = dp[0][i-1];
         }
 
         for (auto i = 1; i <= m; ++i) {
@@ -37,3 +37,5 @@ public:
 
 //"adceb"
 // "*a*b"
+// ""
+// "b*"
