@@ -1,3 +1,5 @@
+// can consider the 2 vector, 1 count variable technique for better performance (problem 567)
+
 class Solution {
 private:
     bool check(vector<int>& v) {
