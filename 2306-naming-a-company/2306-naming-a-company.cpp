@@ -12,7 +12,6 @@ public:
                 common = 0;
                 for (auto& k : vs[i]) if (vs[j].find(k) != vs[j].end()) ++common;
                 ans += 2 * (vs[i].size() - common) * (vs[j].size() - common);
-                cout << ans << "\n";
             }
         }
         return ans;
