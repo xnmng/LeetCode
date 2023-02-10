@@ -8,6 +8,7 @@ public:
                 if (grid[i][j] == 1) v.emplace_back(i, j);
             }
         }
+        if (v.empty()) return -1;
         int ans{-1};
         int d;
         for (auto i = 0; i < n; ++i) {
