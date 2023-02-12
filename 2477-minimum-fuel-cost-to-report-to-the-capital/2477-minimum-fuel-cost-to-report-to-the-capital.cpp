@@ -2,14 +2,12 @@ class Solution {
 private:
     int dfs(int cur, vector<vector<int>>& adjlist, int& seats, long long& ans, unordered_set<int>& visited) {
         visited.insert(cur);
-        // cout << cur << " " << adjlist.size() << "\n";
         auto sum{1};
         for (auto i : adjlist[cur]) {
             if (visited.find(i) != visited.end()) continue;            
             sum += dfs(i, adjlist, seats, ans, visited);
         }
-        // cout << cur << " " << sum << " " << (1 + sum/seats) << "\n";
-        ans += 1 + ((sum - 1) / seats);
+        ans += ceil(1.0 * sum / seats);
         return sum;
     }
 public:
