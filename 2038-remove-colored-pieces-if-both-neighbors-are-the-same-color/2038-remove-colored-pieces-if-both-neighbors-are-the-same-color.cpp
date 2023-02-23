@@ -1,7 +1,6 @@
 class Solution {
 public:
     bool winnerOfGame(string colors) {
-        bool ans{false};
         int sum{0};
         int count{0};
         char cur{' '};
