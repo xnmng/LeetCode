@@ -14,17 +14,18 @@ public:
     bool isCompleteTree(TreeNode* root) {
         queue<TreeNode*> q;
         q.push(root);
-        TreeNode* prev{root};
+        bool hasnullptr{false};
         TreeNode* cur;
         while (!q.empty()) {
             cur = q.front();
             q.pop();
             if (cur) {
-                if (prev == nullptr) return false;
+                if (hasnullptr) return false;
                 q.push(cur->left);
                 q.push(cur->right);
+            } else {
+                hasnullptr = true;
             }
-            prev = cur;
         }
         return true;
     }
