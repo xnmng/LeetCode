@@ -1,3 +1,4 @@
+// dont use n^2 adjacency list! will TLE!
 class Solution {
 public:
     int minScore(int n, vector<vector<int>>& roads) {
