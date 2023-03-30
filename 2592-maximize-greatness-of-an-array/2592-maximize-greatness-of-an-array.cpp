@@ -1,3 +1,4 @@
+// https://leetcode.com/problems/maximize-greatness-of-an-array/discuss/3312061/JavaC++Python-Easy-and-Concise-O(n)
 class Solution {
 public:
     int maximizeGreatness(vector<int>& A) {
