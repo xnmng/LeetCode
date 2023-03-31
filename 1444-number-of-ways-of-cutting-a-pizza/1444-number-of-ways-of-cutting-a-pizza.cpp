@@ -49,7 +49,7 @@ public:
             //     }
             //     cout << "\n";
             // }
-            prev = dp;
+            swap(prev, dp);
         }
         return prev[0][0];
     }
