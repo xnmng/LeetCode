@@ -1,95 +1,56 @@
-class UnionFind {
-public:
-    vector<int> group;
-    vector<int> rank;
-
-    UnionFind(int size) {
-        group = vector<int>(size);
-        rank = vector<int>(size);
-        for (int i = 0; i < size; ++i) {
-            group[i] = i;
-        }
-    }
-
-    int find(int node) {
-        if (group[node] != node) {
-            group[node] = find(group[node]);
-        }
-        return group[node];
-    }
-
-    void join(int node1, int node2) {
-        int group1 = find(node1);
-        int group2 = find(node2);
-
-        // node1 and node2 already belong to same group.
-        if (group1 == group2) {
-            return;
-        }
-
-        if (rank[group1] > rank[group2]) {
-            group[group2] = group1;
-        } else if (rank[group1] < rank[group2]) {
-            group[group1] = group2;
-        } else {
-            group[group1] = group2;
-            rank[group2] += 1;
-        }
-    }
-
-    bool areConnected(int node1, int node2) {
-        int group1 = find(node1);
-        int group2 = find(node2);
-        return group1 == group2;
-    }
-};
-
-
 class Solution {
-public:
-    // Sort in increasing order based on the 3rd element of the array.
-    bool static compare(vector<int>& a, vector<int>& b) {
-        return a[2] < b[2];
+private:
+    int find(vector<int>& parent, int i) {
+        if (parent[i] == -1) return i;
+        parent[i] = find(parent, parent[i]);
+        return parent[i];
     }
-
+    
+    void unionPair(vector<int>& parent, vector<int>& rank, int i, int j) {
+        auto x{find(parent, i)};    
+        auto y{find(parent, j)};    
+        if (x == y) return;
+        if (rank[x] == rank[y]) {
+            ++rank[x];
+            parent[y] = x;
+        }
+        else rank[x] > rank[y] ? parent[y] = x : parent[x] = y;
+    }
+    
+public:
     vector<bool> distanceLimitedPathsExist(int n, vector<vector<int>>& edgeList, vector<vector<int>>& queries) {
-        UnionFind uf(n);
-        int queriesCount = queries.size();
-        vector<bool> answer(queriesCount);
-
-        // Store original indices with all queries.
-        vector<vector<int>> queriesWithIndex(queriesCount);
-        for (int i = 0; i < queriesCount; ++i) {
-            queriesWithIndex[i] = queries[i];
-            queriesWithIndex[i].push_back(i);
+        // sort based on the edge distance
+        sort(edgeList.begin(), edgeList.end(), 
+            [](vector<int>& a, vector<int>& b) {
+                return a[2] < b[2];   
+            });
+        
+        // union find
+        vector<int> parent(n, -1);
+        vector<int> rank(n, 0);
+        
+        // maintain index of each query (before sorting based on limit)
+        for (auto i = 0; i < queries.size(); ++i) {
+            queries[i].push_back(i);
         }
-
-        int edgesIndex = 0;
-
-        // Sort all edges in increasing order of their edge weights.
-        sort(edgeList.begin(), edgeList.end(), compare);
-        // Sort all queries in increasing order of the limit of edge allowed.
-        sort(queriesWithIndex.begin(), queriesWithIndex.end(), compare);
-
-        // Iterate on each query one by one.
-        for (auto& query : queriesWithIndex) {
-            int p = query[0];
-            int q = query[1];
-            int limit = query[2];
-            int queryOriginalIndex = query[3];
-
-            // We can attach all edges which satisfy the limit given by the query.
-            while (edgesIndex < edgeList.size() && edgeList[edgesIndex][2] < limit) {
-                int node1 = edgeList[edgesIndex][0];
-                int node2 = edgeList[edgesIndex][1];
-                uf.join(node1, node2);
-                edgesIndex += 1;
+        sort(queries.begin(), queries.end(),
+            [](vector<int>& a, vector<int>& b) {
+                    return a[2] < b[2];
+            });
+        
+        vector<bool> ans(queries.size());
+        auto edgeIndex{0};
+        
+        // (pj, qj, limit, index)
+        for (auto i : queries) {
+            auto upperBound{i[2]};
+            while (edgeIndex < edgeList.size() && edgeList[edgeIndex][2] < upperBound) {
+                unionPair(parent, rank, edgeList[edgeIndex][0], edgeList[edgeIndex][1]);
+                ++edgeIndex;
             }
-
-            // If both nodes belong to the same component, it means we can reach them. 
-            answer[queryOriginalIndex] = uf.areConnected(p, q);
+            ans[i[3]] = find(parent, i[0]) == find(parent, i[1]);
         }
-
-        return answer;
+        
+        return ans;
     }
 };
