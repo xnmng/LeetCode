@@ -1,3 +1,9 @@
+// the "best strategy" for a senator is to ban the next closest opponent senator
+// instead of searching for the next closest opponent senator, 
+// store both in their respective queues and track their index (i.e. their turn)
+// for the smaller index, they come first and will ban the other senator
+// add to queue their new turn (i.e. current turn + n)
+
 class Solution {
 public:
     string predictPartyVictory(string senate) {
