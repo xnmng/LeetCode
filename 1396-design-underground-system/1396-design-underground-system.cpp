@@ -4,9 +4,7 @@ class UndergroundSystem {
     unordered_map<string, int> count;
     unordered_map<string, int> totalDuration;
 public:
-    UndergroundSystem() {
-        
-    }
+    UndergroundSystem() {}
     
     void checkIn(int id, string stationName, int t) {
         custStart[id] = stationName;
