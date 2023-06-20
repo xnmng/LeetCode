@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<int> getAverages(vector<int>& nums, int k) {
         vector<int> ans(nums.size(), -1);
-        long sum{0};
+        long sum{0}; // prevent overflow; (10^5 * 10^5)
         auto left{0};
         auto center{k};
         for (auto i = 0; i < nums.size(); ++i) {
