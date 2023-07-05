@@ -11,9 +11,7 @@ public:
                 prev1 = prev;
                 prev = i;
                 // cout << prev2 << " " << prev1 << " " << prev << "\n";
-                // if (prev2 == -1) {
-                    ans = max(prev - prev2 - 2, ans);
-                // } else ans = max(prev - prev2 - 2, ans);
+                ans = max(prev - prev2 - 2, ans);
             }
         }
         prev2 = prev1;
@@ -21,9 +19,7 @@ public:
         prev = nums.size();
         // cout << prev2 << " " << prev1 << " " << prev << "\n";
         // cout << prev - prev2 - 3 << "\n";
-        // if (prev2 == -1) {
-            ans = max(prev - prev2 - 2, ans);
-        // } else ans = max(prev - prev2 - 2, ans);
+        ans = max(prev - prev2 - 2, ans);
         return min(ans, static_cast<int>(nums.size()-1)); // handle edge case
     }
 };
