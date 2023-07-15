@@ -15,12 +15,6 @@ private:
             if (k == 0 || index == events.size()) {
                 dp[index][k] = 0;
             } else {
-                if (dpNextIndex[index] == INT_MIN) {
-                    vector<int> target{events[index][1], INT_MAX, INT_MAX};
-                    dpNextIndex[index] = upper_bound(events.begin()+index+1, events.end(), target) 
-                        - events.begin();
-                }
-
                 dp[index][k] = max(
                     events[index][2] + dfs(dpNextIndex[index], k-1, events, dp, dpNextIndex), 
                     dfs(index+1, k, events, dp, dpNextIndex));
@@ -39,6 +33,12 @@ public:
         );
         vector<vector<int>> dp(events.size()+1, vector<int>(k+1, INT_MIN));
         vector<int> dpNextIndex(events.size()+1, INT_MIN);
+        vector<int> target;
+        for (auto i = 0; i < events.size(); ++i) {
+            target = {events[i][1], INT_MAX, INT_MAX};
+            dpNextIndex[i] = upper_bound(events.begin()+i+1, events.end(), target) 
+                        - events.begin();
+        }
         return dfs(0, k, events, dp, dpNextIndex);
     }
 };
