@@ -1,3 +1,5 @@
+// probably faster if we did bottom-up DP (?)
+
 // https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended-ii/solution/
 class Solution {
 private:
