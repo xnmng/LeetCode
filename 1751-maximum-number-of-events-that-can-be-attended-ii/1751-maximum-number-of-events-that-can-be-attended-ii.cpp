@@ -1,20 +1,27 @@
+// https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended-ii/solution/
 class Solution {
 private:
     // at each index, either skip the event, 
     // or pick the event, gaining events[index][2] value
-    // the next event one can attend (index) is found using binary search 
-    int dfs(int index, int k, vector<vector<int>>& events, vector<vector<int>>& dp) {
+    // the next event one can attend (index) is found using binary search
+    
+    // suppose we select an event at index i to attend 
+    // the next index we can attend after i, j, is fixed (does not change)
+    // thus we can cache it as well (memoization idea from DP approach)
+    int dfs(int index, int k, vector<vector<int>>& events, vector<vector<int>>& dp, vector<int>& dpNextIndex) {
         if (dp[index][k] == INT_MIN) {
             if (k == 0 || index == events.size()) {
                 dp[index][k] = 0;
             } else {
-                vector<int> target{events[index][1], INT_MAX, INT_MAX};
-                auto nextIndex{
-                    upper_bound(events.begin()+index+1, events.end(), target)
-                    - events.begin()};
+                if (dpNextIndex[index] == INT_MIN) {
+                    vector<int> target{events[index][1], INT_MAX, INT_MAX};
+                    dpNextIndex[index] = upper_bound(events.begin()+index+1, events.end(), target) 
+                        - events.begin();
+                }
+
                 dp[index][k] = max(
-                    events[index][2] + dfs(nextIndex, k-1, events, dp), 
-                    dfs(index+1, k, events, dp));
+                    events[index][2] + dfs(dpNextIndex[index], k-1, events, dp, dpNextIndex), 
+                    dfs(index+1, k, events, dp, dpNextIndex));
             }
         }
         return dp[index][k];
@@ -29,6 +36,7 @@ public:
             }
         );
         vector<vector<int>> dp(events.size()+1, vector<int>(k+1, INT_MIN));
-        return dfs(0, k, events, dp);
+        vector<int> dpNextIndex(events.size()+1, INT_MIN);
+        return dfs(0, k, events, dp, dpNextIndex);
     }
 };
