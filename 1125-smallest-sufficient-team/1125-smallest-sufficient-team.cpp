@@ -1,37 +1,38 @@
 class Solution {
 public:
     vector<int> smallestSufficientTeam(vector<string>& req_skills, vector<vector<string>>& people) {
-        int n = people.size(), m = req_skills.size();
-        unordered_map<string, int> skillId;
-        for (int i = 0; i < m; i++) {
-            skillId[req_skills[i]] = i;
+        auto target{static_cast<int>(pow(2, req_skills.size()))-1};
+        unordered_map<string,int> mp;
+        for (auto i : req_skills) {
+            mp[i] = pow(2, mp.size());
         }
-        vector<int> skillsMaskOfPerson(n);
-        for (int i = 0; i < n; i++) {
-            for (string skill : people[i]) {
-                skillsMaskOfPerson[i] |= 1 << skillId[skill];
+        
+        // trim input; ignore people with no skills and remove duplicate people with same skills
+        int cur;
+        unordered_map<int,int> p; // (skills, index)
+        for (auto i = 0; i < people.size(); ++i) {
+            cur = 0;
+            for (auto& j : people[i]) {
+                cur += mp[j];
             }
+            if (cur > 0) p[cur] = i;
         }
-        vector<long long> dp(1 << m, (1LL << n) - 1);
-        dp[0] = 0;
-        for (int skillsMask = 1; skillsMask < (1 << m); skillsMask++) {
-            for (int i = 0; i < n; i++) {
-                int smallerSkillsMask = skillsMask & ~skillsMaskOfPerson[i];
-                if (smallerSkillsMask != skillsMask) {
-                    long long peopleMask = dp[smallerSkillsMask] | (1LL << i);
-                    if (__builtin_popcountll(peopleMask) < __builtin_popcountll(dp[skillsMask])) {
-                        dp[skillsMask] = peopleMask;
-                    }
+        
+        unordered_map<int,vector<int>> dp;
+        // prevent rehash; 
+        //     insertions below will not cause iterator to invalidate as no rehash will happen
+        dp.reserve(target+1);
+        dp[0] = {};
+        for (auto& [skills, index] : p) {
+            for (auto itr = dp.begin(); itr != dp.end(); ++itr) {
+                cur = itr->first | skills;
+                if (dp.find(cur) == dp.end() 
+                    || dp[cur].size() > 1 + dp[itr->first].size()) {
+                    dp[cur] = itr->second;
+                    dp[cur].emplace_back(index);
                 }
             }
         }
-        long long answerMask = dp[(1 << m) - 1];
-        vector<int> ans;
-        for (int i = 0; i < n; i++) {
-            if ((answerMask >> i) & 1) {
-                ans.push_back(i);
-            }
-        }
-        return ans;
+        return dp[target];
     }
 };
