@@ -15,7 +15,8 @@ class Solution {
 private:
     TreeNode* cloneTree(TreeNode* node) {
         if (!node) return node;
-        auto clone = node;
+        auto clone = new TreeNode(node->val); // deep copy
+        // auto clone = node; // shallow copy
         clone->left = cloneTree(node->left);
         clone->right = cloneTree(node->right);
         return clone;
