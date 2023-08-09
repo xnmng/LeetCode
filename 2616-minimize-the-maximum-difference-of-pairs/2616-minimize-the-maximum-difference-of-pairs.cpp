@@ -23,6 +23,7 @@ private:
         for (auto i : nums) {
             if (abs(prev - i) <= threshold) {
                 ++count;
+                if (count == p) return true;
                 prev = INT_MAX;
             } else {
                 prev = i;
