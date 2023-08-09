@@ -7,11 +7,11 @@ public:
         int left{0};
         int right{INT_MAX};
         while (left < right) {
-            int mid{right - (right - left) / 2};
+            int mid{left + (right - left) / 2};
             if (helper(nums, p, mid)) {
-                right = mid-1;                
+                right = mid;                
             } else {
-                left = mid;
+                left = mid+1;
             }
         }
         return left;
@@ -21,7 +21,7 @@ private:
         int count{0};
         int prev{INT_MAX};
         for (auto i : nums) {
-            if (abs(prev - i) < threshold) {
+            if (abs(prev - i) <= threshold) {
                 ++count;
                 prev = INT_MAX;
             } else {
