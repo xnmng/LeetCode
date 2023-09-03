@@ -6,3 +6,4 @@ public:
         return square - 4 * triangle;
     }
 };
+// 69675
