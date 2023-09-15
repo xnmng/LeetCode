@@ -1,3 +1,4 @@
+// https://leetcode.com/problems/min-cost-to-connect-all-points/discuss/843940/C++-MST:-Kruskal-+-Prim's-+-Complete-Graph
 // kruskal's algo (add min edges until MST is formed)
 class Solution {
 private:
