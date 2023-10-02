@@ -1,3 +1,5 @@
+// If a group of n consecutive pieces has the same color, 
+// the player can take n - 2 of those pieces if n is greater than or equal to 3
 class Solution {
 public:
     bool winnerOfGame(string colors) {
