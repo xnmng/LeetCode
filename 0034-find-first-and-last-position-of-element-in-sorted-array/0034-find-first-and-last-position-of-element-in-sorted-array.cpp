@@ -28,9 +28,7 @@ public:
                 right = mid - 1;
             }
         }
-        // cout << left << "\n";
-        // if (left+1 == arr.size()) ans[1] = left-1;
-        ans[1] = left; // std::upper_bound implementation
+        ans[1] = left;
         return ans;
     }
 };
