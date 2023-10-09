@@ -13,7 +13,6 @@ public:
             } else {
                 left = mid + 1;
             }
-            // cout << left << " " << mid << " " << right << "\n";
         }
         // definitely doesnt contain answer - early return
         // no point performing 2nd binary search
@@ -21,15 +20,13 @@ public:
         ans[0] = left;
         left = 0;
         right = nums.size() - 1;
-        // cout << "2nd binary search: \n";
         while (left < right) {
             mid = right - (right - left) / 2;
             if (nums[mid] <= target) {
                 left = mid;
             } else {
-                right = mid-1;
+                right = mid - 1;
             }
-            // cout << left << " " << mid << " " << right << "\n";
         }
         // cout << left << "\n";
         // if (left+1 == arr.size()) ans[1] = left-1;
