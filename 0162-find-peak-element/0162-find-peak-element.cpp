@@ -1,3 +1,4 @@
+// https://leetcode.com/problems/find-peak-element/discuss/1290642/Intuition-behind-conditions-or-Complete-Explanation-or-Diagram-or-Binary-Search
 class Solution {
 public:
     int findPeakElement(vector<int>& nums) {
