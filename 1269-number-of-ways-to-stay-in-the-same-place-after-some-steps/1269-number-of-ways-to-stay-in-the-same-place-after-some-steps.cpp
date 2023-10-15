@@ -1,8 +1,10 @@
+// https://leetcode.com/problems/number-of-ways-to-stay-in-the-same-place-after-some-steps/discuss/436392/C++-Bottom-Up-DP
 class Solution {
 public:
     int numWays(int steps, int arrLen) {
         int modulo = 1e9 + 7;
-        // if we have a maximum of k steps, we 
+        // We can ingore array elements greater than steps / 2, 
+        // as we won't able to go back to the first element from there.
         int n = min(steps / 2 + 1, arrLen);
         vector<int> dp(n, 0);
         dp[0] = 1;
