@@ -16,6 +16,8 @@
  * };
  */
 
+
+// https://leetcode.com/problems/flatten-nested-list-iterator/discuss/80146/Real-iterator-in-Python-Java-C++
 class NestedIterator {
     stack<vector<NestedInteger>::iterator> begin;
     stack<vector<NestedInteger>::iterator> end;
