@@ -1,3 +1,5 @@
+// consider each index "i" as peak of mountain triplet
+// precompute minimum value for left [0,i-1] and right [i+1,n-1]
 class Solution {
 public:
     int minimumSum(vector<int>& nums) {
