@@ -2,11 +2,12 @@ class Solution {
 public:
     int numFactoredBinaryTrees(vector<int>& arr) {
         auto modulo{1000000007};
-        sort(arr.begin(), arr.end());
         unordered_map<int,long> mp;
         for (auto i : arr) {
             mp[i] = 1;
         }
+        // go through the numbers in sorted order
+        sort(arr.begin(), arr.end());
         for (auto i = 0; i < arr.size(); ++i) {
             for (auto j = 0; j < i; ++j) {
                 if (arr[i] % arr[j] == 0) {
