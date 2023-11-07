@@ -16,7 +16,7 @@ public:
             ans = max(ans, cur);
             ++right;
         }
-        return max(cur, ans);
+        return ans;
     }
 };
 
