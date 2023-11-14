@@ -1,5 +1,7 @@
 class Solution {
 public:
+    // start with smallest possible integers (greedy approach)
+    // if i is added to the set, (k - i) cannot be added
     int minimumSum(int n, int k) {
         unordered_set<int> s;
         int ans = 0;
