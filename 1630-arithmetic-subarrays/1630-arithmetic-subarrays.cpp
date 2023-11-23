@@ -1,3 +1,11 @@
+/*
+I kinda get it why it's asked by 'G', but asking this as a follow up...
+There's Mo's algorithm to solve the problem. Snap.. and the problem is hard.
+
+https://cp-algorithms.com/data_structures/sqrt_decomposition.html#mos-algorithm
+https://www.scaler.com/topics/data-structures/mos-algorithm/
+Errichto's explanation (https://www.youtube.com/watch?v=BJhzd_VG61k)
+*/
 class Solution {
 public:
     vector<bool> checkArithmeticSubarrays(vector<int>& nums, vector<int>& l, vector<int>& r) {
