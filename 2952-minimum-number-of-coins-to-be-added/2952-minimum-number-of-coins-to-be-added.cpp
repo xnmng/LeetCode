@@ -10,7 +10,7 @@ public:
             ++index;
         }
         while (index < coins.size()) {
-            if (cur >= target) break;
+            if (cur >= target) break; // early return; also prevents overflow
             /*
                 if we are able to currently form combinations [1,..., k]
                 and we need to add another coin, 
