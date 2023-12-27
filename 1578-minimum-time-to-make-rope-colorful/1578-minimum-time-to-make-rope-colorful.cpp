@@ -1,4 +1,3 @@
-// my idea: stack O(n) time, O(n) space
 class Solution {
 public:
     int minCost(string colors, vector<int>& neededTime) {
