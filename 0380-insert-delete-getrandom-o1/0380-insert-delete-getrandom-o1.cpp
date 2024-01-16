@@ -1,3 +1,4 @@
+// https://leetcode.com/problems/insert-delete-getrandom-o1/discuss/85422/AC-C++-Solution.-Unordered_map-+-Vector
 class RandomizedSet {
 private:
     unordered_map<int,int> mp; // <val, index_in_vector>
