@@ -1,5 +1,6 @@
 class Solution {
 public:
+    // either use O(n) space to store DP state, or use input 2D vector to store DP state
     int minFallingPathSum(vector<vector<int>>& matrix) {
         auto n{matrix.size()};
         vector<int> prev(matrix[0]);
@@ -10,8 +11,6 @@ public:
             }
             cur[0] = matrix[i][0] + min(prev[1], prev[0]);
             cur[n-1] = matrix[i][n-1] + min(prev[n-1], prev[n-2]);
-            // for (auto i : cur) cout << i << " ";
-            // cout << "\n";
             swap(prev, cur);
         }
         auto ans{INT_MAX};
