@@ -16,6 +16,8 @@ public:
                 comp = 0;
                 count = 1;
             }
+            // we want all a < e < i < o < u; 
+            // suffices to check that we have made 4 comparisons to know we have a valid answer
             if (comp == 4) ans = max(ans, count);
         }
         return ans;
