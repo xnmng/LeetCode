@@ -4,43 +4,39 @@
 #include <iostream>
 
 class Solution {
-private:
-    void dfs(vector<int>& v, int& ans, int cur, int index) {
-        if (index == v.size()) {
-            ans = max(ans, __popcount(cur));
-            return;
-        }
-        if ((cur & v[index]) == 0) {
-            dfs(v, ans, cur | v[index], index+1);
-        }
-        dfs(v, ans, cur, index+1);
-    }
+    // encode each word (removing inputs with duplicate chars), then dfs to find longest length
 public:
+    void dfs(vector<pair<int,int>>& encoded, int index, int cur, int curLength, int& ans) {
+        ans = max(ans, curLength);
+        if (index == encoded.size()) return;
+        auto [encoding, length] = encoded[index];
+        if ((cur & encoding) == 0) {
+            dfs(encoded, index+1, cur | encoding, curLength + length, ans);
+        }
+        dfs(encoded, index+1, cur, curLength, ans);
+    }
+
     int maxLength(vector<string>& arr) {
-        auto ans{0};
-        vector<int> v;
-        unordered_set<int> s;
-        v.reserve(arr.size());
-        auto cur{0};
-        auto isUnique{true};
+        vector<pair<int,int>> encoded; // <encoding, length>
+        encoded.reserve(arr.size());
+        unordered_set<char> s;  // check for duplicates inside arr[i];
+        bool hasDuplicate;      // check for duplicates inside arr[i];
+        int num;
         for (auto& i : arr) {
-            cur = 0;
-            isUnique = true;
-            for (auto& c : i) {
-                if (cur & static_cast<int>(pow(2, c - 'a' + 1))) {
-                    isUnique = false;
+            num = 0;
+            s.clear();
+            hasDuplicate = false;
+            for (char c : i) {
+                num ^= (int) pow(2, c - 'a');
+                if (!s.insert(c).second) {
+                    hasDuplicate = true;
                     break;
                 }
-                cur += static_cast<int>(pow(2, c - 'a' + 1));
             }
-            if (isUnique && s.find(cur) == s.end()) {
-                v.push_back(cur);
-                s.insert(cur);
-            }
+            if (!hasDuplicate) encoded.emplace_back(num, i.size());
         }
-        for (auto i = 0; i < v.size(); ++i) {
-            dfs(v, ans, v[i], i+1);
-        }
+        int ans = 0;
+        dfs(encoded, 0, 0, 0, ans);
         return ans;
     }
 };
