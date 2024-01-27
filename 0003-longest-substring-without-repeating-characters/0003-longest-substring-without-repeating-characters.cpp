@@ -7,6 +7,7 @@ public:
         int right = 0;
         int ans = 0;
         while (right < s.size()) {
+            // when there was already a prev char seen (nifty trick)
             if (v[s[right]] > left) left = v[s[right]];
             v[s[right]] = right;
             ans = max(ans, right - left);
