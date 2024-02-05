@@ -1,5 +1,8 @@
 class Solution {
 public:
+    // could also store counts, iterate across string again, if count is 1 return that index (2 O(n) passes)
+    //
+    // this solution is O(n) 1 pass + O(26) 1 pass
     int firstUniqChar(string s) {
         vector<int> firstIndex(26, INT_MAX);
         for (auto i = 0; i < s.size(); ++i) {
