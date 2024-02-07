@@ -1,10 +1,13 @@
 class Solution {
 public:
     string frequencySort(string s) {
-        vector<int> v(75);
+        // count frequency of each char
+        vector<int> v(75, 0);
         for (auto i : s) {
             ++v[i - '0'];
         }
+        
+        // 'emit' (freq, char) pairs and sort, construct answer and return
         vector<pair<int, int>> v2;
         v2.reserve(52);
         for (auto i = 0; i < 10; ++i) { // only iterate through char index
