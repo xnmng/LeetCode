@@ -11,6 +11,7 @@
  */
 class Solution {
 public:
+    // bfs, stack approach
     bool isSameTree(TreeNode* p, TreeNode* q) {
         stack<TreeNode*> ps;
         stack<TreeNode*> qs;
