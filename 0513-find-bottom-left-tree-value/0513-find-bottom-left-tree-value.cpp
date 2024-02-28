@@ -11,22 +11,21 @@
  */
 class Solution {
 public:
+    // bfs and find leftmost value
     int findBottomLeftValue(TreeNode* root) {
         queue<TreeNode*> q;
+        queue<TreeNode*> next;
         q.push(root);
-        TreeNode* cur;
-        TreeNode* ans;
+        int ans;
         while (!q.empty()) {
-            queue<TreeNode*> next;
-            ans = q.front();
+            ans = q.front()->val;
             while (!q.empty()) {
-                cur = q.front();
+                if (q.front()->left) next.push(q.front()->left);
+                if (q.front()->right) next.push(q.front()->right);
                 q.pop();
-                if (cur->left) next.push(cur->left);
-                if (cur->right) next.push(cur->right);
             }
-            swap(next, q);
+            swap(q, next);
         }
-        return ans->val;
+        return ans;
     }
 };
