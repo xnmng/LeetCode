@@ -4,14 +4,16 @@
 
 <p>Return <code>intervals</code><em> after the insertion</em>.</p>
 
+<p><strong>Note</strong> that you don't need to modify <code>intervals</code> in-place. You can make a new array and return it.</p>
+
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre><strong>Input:</strong> intervals = [[1,3],[6,9]], newInterval = [2,5]
 <strong>Output:</strong> [[1,5],[6,9]]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre><strong>Input:</strong> intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [4,8]
 <strong>Output:</strong> [[1,2],[3,10],[12,16]]
