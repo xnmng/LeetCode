@@ -1,6 +1,7 @@
 class Solution {
 public:
     // TODO: understand this greedy solution
+    // https://leetcode.com/problems/task-scheduler/solution/
     int leastInterval(vector<char>& tasks, int n) {
         vector<int> v(26, 0);
         int len = tasks.size(); // using len instead of usual n because of naming clash
