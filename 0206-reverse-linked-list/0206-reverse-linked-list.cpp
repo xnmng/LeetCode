@@ -11,23 +11,23 @@
 class Solution {
 public:
     // recursive
-    ListNode* reverseList(ListNode* head, ListNode* ans = nullptr) {
-        if (!head) return ans;
-        ListNode* next = head->next;
-        head->next = ans;
-        return reverseList(next, head);
-    }
+    // ListNode* reverseList(ListNode* head, ListNode* ans = nullptr) {
+    //     if (!head) return ans;
+    //     ListNode* next = head->next;
+    //     head->next = ans;
+    //     return reverseList(next, head);
+    // }
     
     // iterative
-    // ListNode* reverseList(ListNode* head) {
-    //     ListNode* ans = nullptr;
-    //     ListNode* temp = nullptr;
-    //     while (head) {
-    //         temp = head;
-    //         head = head->next;
-    //         temp->next = ans;
-    //         ans = temp;
-    //     }
-    //     return ans;
-    // }
+    ListNode* reverseList(ListNode* head) {
+        ListNode* ans = nullptr;
+        ListNode* temp = nullptr;
+        while (head) {
+            temp = head;
+            head = head->next;
+            temp->next = ans;
+            ans = temp;
+        }
+        return ans;
+    }
 };
