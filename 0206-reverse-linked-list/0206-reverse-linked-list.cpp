@@ -10,7 +10,7 @@
  */
 class Solution {
 public:
-    // TODO: recursive
+    // recursive
     ListNode* reverseList(ListNode* head, ListNode* ans = nullptr) {
         if (!head) return ans;
         ListNode* next = head->next;
