@@ -1,5 +1,7 @@
 class Solution {
 public:
+    // each integer only appears once or twice; use input arr as space
+    // set flag to -1, if encountered again, this number is a duplicate
     vector<int> findDuplicates(vector<int>& nums) {
         vector<int> ans;
         int val;
