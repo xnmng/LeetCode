@@ -1,5 +1,8 @@
 class Solution {
 public:
+    // since we only have n numbers, the answer definitely lies in the range [1,n]
+    //
+    // to handle the edge case of nums[i] == 0, increment first, then during checking, return i+1
     int firstMissingPositive(vector<int>& nums) {
         for (auto& i : nums) {
             if (i <= 0) i = nums.size()+1;
