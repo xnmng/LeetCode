@@ -6,21 +6,20 @@ private:
     
 public:
     string makeGood(string s) {
-        stack<char> st;
+        deque<char> st;
         for (auto i : s) {
-            if (!st.empty() && check(st.top(), i)) {
-                st.pop();
+            if (!st.empty() && check(st.back(), i)) {
+                st.pop_back();
             } else {
-                st.push(i);
+                st.push_back(i);
             }
         }
         string ans;
-        ans.reserve(s.size());
+        ans.reserve(st.size());
         while (!st.empty()) {
-            ans.push_back(st.top());
-            st.pop();
+            ans.push_back(st.front());
+            st.pop_front();
         }
-        reverse(ans.begin(), ans.end());
         return ans;
     }
 };
