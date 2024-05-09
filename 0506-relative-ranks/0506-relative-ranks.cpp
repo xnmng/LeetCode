@@ -1,33 +1,21 @@
 class Solution {
 public:
     vector<string> findRelativeRanks(vector<int>& score) {
-        int N = score.size();
-        vector<int> scoreCopy(N);
-        copy(score.begin(), score.end(), scoreCopy.begin());
-        
-        // Save the index of each athlete
-        unordered_map<int, int> scoreToIndex;
-        for (int i = 0; i < N; i++) {
-            scoreToIndex[scoreCopy[i]] = i;
+        int n = score.size();
+        vector<string> ans(n);
+        vector<pair<int,int>> v; // <score, index>
+        for (int i = 0; i < n; ++i) {
+            v.emplace_back(score[i], i);
         }
-        
-        // Sort scoreCopy in descending order
-        sort(scoreCopy.begin(), scoreCopy.end(), greater<int>());
-
-        // Assign ranks to athletes
-        vector<string> rank(N);
-        for (int i = 0; i < N; i++) {
-            if (i == 0) {
-                rank[scoreToIndex[scoreCopy[i]]] = "Gold Medal";
-            } else if (i == 1) {
-                rank[scoreToIndex[scoreCopy[i]]] = "Silver Medal";
-            } else if (i == 2) {
-                rank[scoreToIndex[scoreCopy[i]]] = "Bronze Medal";
-            } else {
-                rank[scoreToIndex[scoreCopy[i]]] = to_string(i + 1);
-            }
+        sort(v.rbegin(), v.rend()); // sort in descending order by providing reverse itr's
+        ans[v[0].second] = "Gold Medal";
+        if (n >= 2) ans[v[1].second] = "Silver Medal";
+        if (n >= 3) ans[v[2].second] = "Bronze Medal";
+        for (int i = 3; i < n; ++i) {
+            // cout << v[i].first << " " << v[i].second << "\n";
+            ans[v[i].second] = to_string(i+1);
         }
-        
-        return rank;
+        return ans;
     }
 };
+// [1]
