@@ -1,3 +1,4 @@
+// TODO: learn and read improved solutions
 class Solution {
 public:
     // brute force the subset, then check that it is non-beautiful
