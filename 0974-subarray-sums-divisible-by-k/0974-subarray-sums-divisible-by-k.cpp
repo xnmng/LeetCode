@@ -6,6 +6,7 @@ public:
         auto sum{0};
         auto ans{0};
         for (auto i : nums) {
+            // Take modulo twice to avoid negative remainders.
             sum = ((sum + i) % k + k) % k;
             ans += v[sum];
             ++v[sum];
