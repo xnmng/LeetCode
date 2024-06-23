@@ -1,6 +1,9 @@
 class Solution {
 public:
+    // TODO: read O(n) time, O(n) space solution
+    //
     // subarray is contiguous
+    // use multiset, O(nlogn) time, O(n) space
     int longestSubarray(vector<int>& nums, int limit) {
         multiset<int> s;
         int left = 0;
