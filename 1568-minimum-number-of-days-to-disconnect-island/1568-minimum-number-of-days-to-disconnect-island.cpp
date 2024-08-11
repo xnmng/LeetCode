@@ -1,5 +1,7 @@
 class Solution {
 public:
+    // TODO: learn tarjan's algo
+    //
     // The most effective way to split an island into two parts 
     //  is to find the thinnest cross-section and change those cells to water. 
     //
