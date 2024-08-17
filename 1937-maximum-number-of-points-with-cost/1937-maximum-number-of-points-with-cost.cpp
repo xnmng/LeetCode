@@ -5,6 +5,7 @@ public:
     // 
     // to optimize, precompute the best choice for a given index i 
     // (using prev row and prev index val - 1)
+    // space optimize it as well by only storing cur and prev state (due to recurrence relation)
     long long maxPoints(vector<vector<int>>& points) {
         int m = points.size();
         int n = points[0].size();
