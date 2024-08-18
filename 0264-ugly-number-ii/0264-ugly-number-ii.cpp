@@ -2,6 +2,7 @@ class Solution {
 public:
     // https://www.youtube.com/watch?v=1pj2a5bmziY
     // O(n) time, O(n) space
+    // note: cannot be reduced down to constant space because each pointer is pointing to some prev. computed number!
     int nthUglyNumber(int n) {
         vector<int> v{1};
         int ptr2 = 0;
