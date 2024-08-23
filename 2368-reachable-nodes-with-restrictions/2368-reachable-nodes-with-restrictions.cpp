@@ -1,5 +1,6 @@
 class Solution {
 public:
+    // TODO: solve using union find
     int reachableNodes(int n, vector<vector<int>>& edges, vector<int>& restricted) {
         unordered_set<int> uset(restricted.begin(), restricted.end());
         unordered_set<int> visited;
