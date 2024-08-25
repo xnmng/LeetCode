@@ -11,6 +11,7 @@
  */
 class Solution {
 public:
+    // TODO: how do without reverse?
     // iterative solution
     // https://leetcode.com/problems/binary-tree-postorder-traversal/discuss/5686926/Iterative-+-recursive-or-100-or-C++-or-simple
     vector<int> postorderTraversal(TreeNode* root) {
