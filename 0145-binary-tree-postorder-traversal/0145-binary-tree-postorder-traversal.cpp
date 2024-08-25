@@ -14,6 +14,7 @@ public:
     // TODO: how do without reverse?
     // iterative solution
     // https://leetcode.com/problems/binary-tree-postorder-traversal/discuss/5686926/Iterative-+-recursive-or-100-or-C++-or-simple
+    // use the property that inorder reversed is postorder
     vector<int> postorderTraversal(TreeNode* root) {
         if (!root) return {};
         vector<int> ans;
