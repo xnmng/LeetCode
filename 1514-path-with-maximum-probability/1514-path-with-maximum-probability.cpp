@@ -1,5 +1,9 @@
 class Solution {
 public:
+    // dijkstra's
+    // O(m + nlogn) for fib. heap, O(n + mlogn) for binary heap
+    // where n is number of nodes, m is number of edges
+    // O(n + m) space
     double maxProbability(int n, vector<vector<int>>& edges, vector<double>& succProb, int start, int end) {
         vector<double> v(n, 0.0);
         v[start] = 1;
