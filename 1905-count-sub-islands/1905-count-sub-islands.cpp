@@ -1,5 +1,7 @@
 class Solution {
 public:
+    // TODO: solve using union find disjoint set
+    //
     // follow the definition stated in the question:
     //
     // An island in grid2 is considered a sub-island if there is an island in grid1 that 
