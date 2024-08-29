@@ -1,6 +1,7 @@
 class Solution {
 public:
     // dfs would work
+    // O(n) time O(n) space
     //
     // TODO: solve using union find disjoint set
     int removeStones(vector<vector<int>>& stones) {
@@ -12,9 +13,6 @@ public:
         vector<bool> visited(n, false);
         
         for (int i = 0; i < n; ++i) {
-            // cout << "pre " << stones[i][0] << " " << stones[i][1] << "\n";
-            // cout << "col " << stones[i][1] << " add " << i << "\n";
-            // cout << "row " << stones[i][0] << " add " << i << "\n";
             rows[stones[i][0]].emplace_back(i);
             cols[stones[i][1]].emplace_back(i);
         }
@@ -23,7 +21,6 @@ public:
         
         for (int i = 0; i < n; ++i) {
             if (!visited[i]) {
-                // cout << "dfs " << i << "\n";
                 dfs(i, stones, cols, rows, visited);
                 ++count;
             }
@@ -36,7 +33,6 @@ public:
              unordered_map<int, vector<int>>& cols, 
              unordered_map<int, vector<int>>& rows, 
              vector<bool>& visited) {
-        // cout << "at " << stones[index][0] << " " << stones[index][1] << "\n";
         if (!visited[index]) {
             visited[index] = true;
             for (int i : rows[stones[index][0]]) {
