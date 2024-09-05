@@ -11,7 +11,7 @@ public:
         }
         int missingSum = mean * (rolls.size() + n) - sum;
 
-        // check edge case
+        // check edge case, no possible solution
         if (missingSum < n || missingSum > n*6) return {};
 
         vector<int> ans(n, 1);
