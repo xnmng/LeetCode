@@ -19,6 +19,8 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
+// todo: kmp/dp?
 class Solution {
 private:
     bool helper(ListNode* head, TreeNode* root) {
