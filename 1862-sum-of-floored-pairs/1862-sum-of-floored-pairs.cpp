@@ -22,6 +22,8 @@ public:
     // how do we calculate all the 1's without TLE?
     // we should calculate for all 1's at once! dont recalculate ans for nums[i] == 1 many times
     // maintain a freq variable and increment while we find same value in nums, then skip those indexes
+    //
+    // (sort and calculate approach)
     int sumOfFlooredPairs(vector<int>& nums) {
         int modulo = 1e9+7;
         long ans = 0;
