@@ -17,28 +17,18 @@ public:
         unordered_map<int,int> prev{{0, 0}};
         int state = 0;
         int ans = 0;
-        // int index = 0;
         for (int i = 0; i < s.size(); ++i) {
             if (mp.find(s[i]) != mp.end()) {
                 state ^= (int) pow(2,mp[s[i]]);
             }
-            // cout << "cur state=" << state << "\n";
             if (state == 0) {
                 ans = i+1;
-                // index = 0;
             }
-            else if (prev.find(state) != prev.end()) {
-                // cout << "state exists previously\n";
-                if (i - prev[state] > ans) {
-                    ans = max(ans, i - prev[state]);
-                    // index = prev[state] + 1;
-                }
-            } else {
+            else if (prev.find(state) == prev.end()) {
                 prev[state] = i;
-                // cout << "storing " << state << " " << i << "\n";
+            } else {
+                ans = max(ans, i - prev[state]);
             }
-            // cout << "best=" << s.substr(index, ans) << " " << "index=" << index 
-            //     << " state=" << state << " ans=" << ans << "\n\n";
         }
         return ans;
     }
