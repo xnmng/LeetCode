@@ -23,16 +23,15 @@ public:
     // we might get a very large multiplier (10^6) that we need to apply many times to each number
     // (min cycles we can have using max constraints is ~10^5)
     // how to compute this multiplication and take modulo of (1e9+7) ?
+    // use recursive exponentiation by squaring algo (O(logn) time)
     // 
-    // 
+    // O(nlogk) time, O(n) space
     vector<int> getFinalState(vector<int>& nums, int k, int multiplier) {
         if (multiplier == 1) return nums;
         
         // apply the operations until we get the cycle condition
         // i.e. min(nums[i]) * mult. > max(nums[i])
-        
-        // <num, index_of_num>
-        auto comp = [](pair<long,int> a, pair<long,int> b) {
+        auto comp = [](pair<long,int> a, pair<long,int> b) { // <num, index_of_num>
             if (a.first == b.first) return a.second > b.second;  
             return a.first > b.first;
         };
@@ -45,8 +44,6 @@ public:
         }
         while (k > 0) {
             auto [num, index] = pq.top();
-            // cout << num << " " << index << "\n";
-            // num = multiply(num, multiplier);
             // do not use multiply function here since it automatically does mod for us!
             if (num * multiplier > largest) {
                 break;                
@@ -54,12 +51,9 @@ public:
                 pq.pop();
                 // when we add back then we can use multiply function
                 pq.emplace(multiply(num, multiplier), index);
-                // nums[index] = num;
                 --k;
             }            
         }
-        // for (auto i : nums) cout << i << " ";
-        // cout << "\n";
         
         // perform the cycle multiplication and return
         int cycles = k / n;
@@ -67,9 +61,7 @@ public:
         while (!pq.empty()) {
             auto [num, index] = pq.top();
             pq.pop();
-            // cout << num << " " << index << "\n";
             num = cycleMultiply(num, cycles + (extra > 0), multiplier);
-            // cout << num << "\n";
             --extra; // doesnt matter if extra is a negative val
             nums[index] = num;
         }
@@ -80,9 +72,7 @@ public:
     // returns (num * (mult^ops)) % 1e9+7
     int cycleMultiply(long num, long ops, long mult) {
         long modulo = 1e9+7;
-        // num %= modulo;
         long res = (power(mult, ops)) % modulo;
-        // cout << res << "\n";
         return (int) multiply(num, res);
     }
     
