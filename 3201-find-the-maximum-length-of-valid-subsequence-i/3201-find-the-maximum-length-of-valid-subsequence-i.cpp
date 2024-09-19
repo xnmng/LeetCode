@@ -1,6 +1,5 @@
 class Solution {
 public:
-    // simulate
     // recall:
     //      odd + odd = even
     //      even + even = even
@@ -12,7 +11,7 @@ public:
     //      odd, even, odd, even ...
     //      even, even, even, even ...
     //
-    // check all 3 sequences and return longest one
+    // iterate across nums, check all 3 sequences and return longest one
     int maximumLength(vector<int>& nums) {
         int allOdd;
         int allEven;
