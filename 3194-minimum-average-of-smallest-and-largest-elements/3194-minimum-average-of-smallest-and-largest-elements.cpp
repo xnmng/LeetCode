@@ -1,5 +1,6 @@
 class Solution {
 public:
+    // constraints small, just sort and simulate the process
     double minimumAverage(vector<int>& nums) {
         sort(nums.begin(), nums.end());
         double ans = INT_MAX;
