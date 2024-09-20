@@ -1,5 +1,13 @@
 class Solution {
 public:
+    // since we need to remove half of the elements from both arrays, 
+    // and our resultant goal is to maximize the number of unique remaining integers from both sets,
+    // we will first remove any duplicates from both input arrays
+    //
+    // suppose there exists k common elements between both arrays after removal
+    // if we need to remove more elements from either arrays (since we may not have had removed enough elements)
+    // we should remove the common elements first
+    // if we dont have any common elements left to remove, then we remove the remaining (unique) elements
     int maximumSetSize(vector<int>& nums1, vector<int>& nums2) {
         unordered_set<int> s1(nums1.begin(), nums1.end());
         unordered_set<int> s2(nums2.begin(), nums2.end());
@@ -9,11 +17,6 @@ public:
         
         int s1Removed = n1 - s1.size();
         int s2Removed = n2 - s2.size();
-        
-        // if we still need to remove elements, what should we remove?
-        // remove elements that are common between both sets
-        // if still not possible, remove unique elements
-        // (idea of inclusion exclusion principle can be applied to this qn)
         
         int common = 0;
         for (int i : s1) {
