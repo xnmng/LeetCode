@@ -24,21 +24,38 @@ public:
     //          (since we are taking this index * -1, it must have been because we had some positive index prior)
     //      dp[1][i] = max(dp[0][i-1], dp[1][i-1]) + nums[i]
     //          (since we are taking this index * 1, we just take the max of previous index's choices)
-    // 
-    // O(n) time, O(n) space, possible to reduce to O(1) space 
-    // (TODO: optmimze space to O(1) based on the recurrence relation)
+    //
+    // O(n) time, O(1) space (see recurrence)
     long long maximumTotalCost(vector<int>& nums) {
         int n = nums.size();
-        vector<vector<long long>> dp(2, vector<long long>(n, INT_MIN));
-        dp[0][0] = nums[0];
-        dp[1][0] = nums[0];
+        long long positive = nums[0];
+        long long negative = nums[0];
+        long long positiveNext;
+        long long negativeNext;
         
         for (int i = 1; i < n; ++i) {
-            dp[0][i] = dp[1][i-1] - nums[i];
-            dp[1][i] = max(dp[0][i-1], dp[1][i-1]) + nums[i];
+            negativeNext = positive - nums[i];
+            positiveNext = max(positive, negative) + nums[i];
+            positive = positiveNext;
+            negative = negativeNext;
         }
         
-        return max(dp[0].back(), dp[1].back());
+        return max(positive, negative);
     }
+    
+//     // O(n) time, O(n) space (possible to reduce to O(1) space due to recurrence) 
+//     long long maximumTotalCost(vector<int>& nums) {
+//         int n = nums.size();
+//         vector<vector<long long>> dp(2, vector<long long>(n, INT_MIN));
+//         dp[0][0] = nums[0];
+//         dp[1][0] = nums[0];
+        
+//         for (int i = 1; i < n; ++i) {
+//             dp[0][i] = dp[1][i-1] - nums[i];
+//             dp[1][i] = max(dp[0][i-1], dp[1][i-1]) + nums[i];
+//         }
+        
+//         return max(dp[0].back(), dp[1].back());
+//     }
 };
 // [4,-5,-3,-2,-4,4]
