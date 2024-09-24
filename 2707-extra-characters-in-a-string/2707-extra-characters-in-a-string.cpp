@@ -1,6 +1,11 @@
 // https://leetcode.com/problems/extra-characters-in-a-string/solution/
 class Solution {
 public:
+    // TODO: optimize using trie
+    // O(n^3) time, O(n + mk) space
+    //
+    // n input, each input check n substr start positions, n substrings created, 
+    // dp arr size n, dict arr size k, each word in dict size m
     int minExtraChar(string s, vector<string>& dictionary) {
         int n = s.size();
         vector<int> dp(n+1, INT_MAX);
