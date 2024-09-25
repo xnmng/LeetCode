@@ -42,6 +42,8 @@ public:
         return ans;
     }
     
+    // DO NOT USE VECTOR! (MLE!)
+    // since we know beforehand the size, just use a c-style array!
     struct Node {
         int freq;
         Node* next[26];
