@@ -21,8 +21,8 @@ private:
     map<int,int> mp; // [start, end]
 
     bool hasClash(int a, int b, int x, int y) {
-        cout << a << " " << b << " " << x << " " << y << "\n";
-        cout << (max(b, y) - min(a, x) < (b - a) + (y - x)) << "\n";
+        // cout << a << " " << b << " " << x << " " << y << "\n";
+        // cout << (max(b, y) - min(a, x) < (b - a) + (y - x)) << "\n";
         return max(b, y) - min(a, x) < (b - a) + (y - x);
     }
 };
