@@ -1,5 +1,7 @@
 class Solution {
 public:
+    // https://youtu.be/OWyHYyF0e1c?si=c7DgMuQ3VVH1zH1F
+    //
     // idea inspired by subarray sum equals k (note: 2 pointer works because of monotonic property)
     // we just need some way to perform 2 pointers using OR operator (cant use summing like in subarray sum equals k)
     //
@@ -7,7 +9,7 @@ public:
     // (ith index is ith bit; i.e. 2^i)
     // we can get the number, add and remove number to our encoding in O(32) -> O(1) time
     // perform 2 pointers with this
-    
+    //
     // O(n) time, O(1) time
     int minimumDifference(vector<int>& nums, int k) {
         int ans = INT_MAX;
