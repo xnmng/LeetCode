@@ -2,7 +2,8 @@ class Solution {
 public:
     // sort using map, generate ans vector and return
     // can reduce down to O(k) space (where k is the number of unique elements in arr if we traverse twice)
-    // O(N) time, O(k) space
+    // add the unique elements, set the rank, generate ans vector (1 pass each)
+    // O(N) time (3 pass), O(k) space
     vector<int> arrayRankTransform(vector<int>& arr) {
         map<int,int> mp; // value to index
         int n = arr.size();
