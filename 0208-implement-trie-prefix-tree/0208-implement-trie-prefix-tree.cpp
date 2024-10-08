@@ -1,3 +1,4 @@
+// notice that for the trie, you dont actually need to store the val of each node! (you can if you want)
 class Trie {
     vector<Trie*> next;
     bool isWord;
