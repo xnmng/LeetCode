@@ -11,6 +11,7 @@
  */
 class Solution {
 public:
+    // recursively invert
     TreeNode* invertTree(TreeNode* root) {
         if (!root) return root;
         invertTree(root->left);
