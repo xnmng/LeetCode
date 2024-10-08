@@ -1,6 +1,7 @@
 class Solution {
 public:
     // keep track of last char seen index, update it accordingly
+    // at each index, calculate the longest substring with s[i] as the end
     int lengthOfLongestSubstring(string s) {
         vector<int> v(256, -1);
         int left = -1;
