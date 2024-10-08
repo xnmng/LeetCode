@@ -1,6 +1,11 @@
 class Solution {
 public:
     // since we only have n numbers, the answer definitely lies in the range [1,n]
+    // use input values to store information about arr (indexing into arr is O(1) time)
+    // transform each non-zero value into n+1 (i.e. not part of our answer)
+    // 
+    // iterate once, set the flags (negative)
+    // iterate again to find first missing positive
     //
     // to handle the edge case of nums[i] == 0, increment first, then during checking, return i+1
     int firstMissingPositive(vector<int>& nums) {
