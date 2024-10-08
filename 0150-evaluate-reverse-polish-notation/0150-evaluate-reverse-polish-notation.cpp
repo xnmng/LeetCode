@@ -1,4 +1,4 @@
-// E4 capital round 1 interview question (timothy)
+// E4 capital round 1 interview question (timothy; lambda for each operator, template functions AMAP)
 class Solution {
 public:
     // The reverse polish is a mathematical notation in which operators follow their operands. 
