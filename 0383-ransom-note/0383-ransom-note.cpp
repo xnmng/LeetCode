@@ -1,14 +1,14 @@
 class Solution {
 public:
     bool canConstruct(string ransomNote, string magazine) {
-        unordered_map<char,int> mp;
+        vector<int> v(26, 0);
         for (auto i : ransomNote) {
-            ++mp[i];
+            ++v[i - 'a'];
         }
         int count = ransomNote.size();
         for (auto i : magazine) {
-            --mp[i];
-            if (mp[i] >= 0) --count;
+            --v[i - 'a'];
+            if (v[i - 'a'] >= 0) --count;
             if (count == 0) return true;
         }
 
