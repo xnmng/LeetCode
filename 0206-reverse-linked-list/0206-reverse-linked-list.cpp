@@ -19,6 +19,10 @@ public:
     // }
     
     // iterative
+    // extract first node, store in temp
+    // move node to next
+    // point first node to ans
+    // set ans to first node (which is pointing at ans)
     ListNode* reverseList(ListNode* head) {
         ListNode* ans = nullptr;
         ListNode* temp = nullptr;
