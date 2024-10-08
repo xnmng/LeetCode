@@ -27,7 +27,7 @@ public:
                 if (cur->left) next.push(cur->left);
                 if (cur->right) next.push(cur->right);
             }
-            ans.emplace_back(v);
+            ans.emplace_back(move(v));
             swap(q, next);
         }
         return ans;
