@@ -1,26 +1,32 @@
 class Solution {
-private:
-    void dfs(vector<int>& nums, vector<int>& cur, vector<bool>& state, vector<vector<int>>& ans) {
-        if (cur.size() == nums.size()) {
-            ans.emplace_back(cur);
-            return;
-        }
-        for (auto i = 0; i < nums.size(); ++i) {
-            if (!state[i]) {
-                state[i] = true;
-                cur.emplace_back(nums[i]);
-                dfs(nums, cur, state, ans);
-                cur.pop_back();
-                state[i] = false;
-            }
-        }
-    }
 public:
     vector<vector<int>> permute(vector<int>& nums) {
-        vector<vector<int>> ans;
-        vector<bool> state(nums.size(), false);
+        int n = nums.size();
+        vector<bool> selected(n, false);
         vector<int> cur;
-        dfs(nums, cur, state, ans);
+        cur.reserve(n);
+        vector<vector<int>> ans;
+        
+        dfs(ans, cur, selected, nums, n);
+        
         return ans;
+    }
+    
+    // at each step, take one node then recurse
+    void dfs(vector<vector<int>>& ans, vector<int>& cur, 
+             vector<bool>& selected, vector<int>& nums, int remaining) {
+        if (remaining == 0) {
+            ans.emplace_back(cur);
+        }
+        int n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            if (!selected[i]) {
+                cur.emplace_back(nums[i]);
+                selected[i] = true;
+                dfs(ans, cur, selected, nums, remaining-1);
+                cur.pop_back();
+                selected[i] = false;
+            }
+        }
     }
 };
