@@ -1,5 +1,6 @@
 class Solution {
 public:
+    // https://leetcode.com/problems/the-number-of-the-smallest-unoccupied-chair/solution/
     int smallestChair(vector<vector<int>>& times, int targetFriend) {
         for (int i = 0; i < times.size(); ++i) {
             times[i].emplace_back(i);
