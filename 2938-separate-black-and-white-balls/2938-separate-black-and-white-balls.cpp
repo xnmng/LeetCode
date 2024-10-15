@@ -1,7 +1,7 @@
 class Solution {
 public:
     long long minimumSteps(string s) {
-        // goal: 000...111...
+        // goal: 000...01...111
         int left = 0;
         int right = s.size()-1;
         long long ans = 0;
