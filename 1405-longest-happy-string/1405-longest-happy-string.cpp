@@ -1,5 +1,6 @@
 class Solution {
 public:
+    // simulate the process (step by step)
     string longestDiverseString(int a, int b, int c) {
         string ans = "";
         vector<pair<int,char>> v{
@@ -8,7 +9,6 @@ public:
             {c, 'c'},
         };
         update(v);
-        // for (auto [a,b] : v) cout << a << " " << b << "\n";
         int next;
         while (true) {
             next = 0;
