@@ -1,5 +1,8 @@
 class Solution {
 public:
+    // TODO: O(n) time O(1) space solution
+    // TODO: O(1) time O(1) space solution
+    
     // recurse to find the kth bit
     // O(n) time O(n) space
     char findKthBit(int n, int k) {
