@@ -9,8 +9,9 @@ public:
     }
     
     // at each step, add the char and consider both making this a substring and not making it a substring
+    // optimization: if we cant improve the current count anymore, just return
     void dfs(string& s, string& cur, unordered_map<string,int>& mp, int& ans, int index = 0) {
-        if (index == s.size()) return;
+        if (index == s.size() || mp.size() + (s.size() - index) <= ans) return;
         cur += s[index];
         string temp = cur;
         ++mp[cur];
