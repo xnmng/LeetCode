@@ -1,5 +1,6 @@
 class Solution {
 public:
+    // largest XOR happens when we select k to always be 2^maxBit - 1
     vector<int> getMaximumXor(vector<int>& nums, int maximumBit) {
         int n = nums.size();
         vector<int> ans;
