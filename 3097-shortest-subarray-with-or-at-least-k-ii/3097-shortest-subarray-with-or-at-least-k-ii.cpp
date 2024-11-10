@@ -1,49 +1,53 @@
 class Solution {
 public:
     int minimumSubarrayLength(vector<int>& nums, int k) {
-        int ans = INT_MAX;
-        int left = 0;
-        int right = 0;
-        int n = nums.size();
-        vector<int> v(32, 0);
-        while (right < n) {
-            if (nums[right] >= k) return 1; // edge case, can return early
-            add(v, nums[right]);
-            while (helper(v) >= k) {
-                // cout << helper(v) << "\n";
-                ans = min(ans, right - left + 1);
-                // cout << ans << "\n";
-                remove(v, nums[left]);
-                ++left;
+        int minLength = INT_MAX;
+        int windowStart = 0;
+        int windowEnd = 0;
+        vector<int> bitCounts(32,
+                              0);  // Tracks count of set bits at each position
+
+        // Expand window until end of array
+        while (windowEnd < nums.size()) {
+            // Add current number to window
+            updateBitCounts(bitCounts, nums[windowEnd], 1);
+
+            // Contract window while OR value is valid
+            while (windowStart <= windowEnd &&
+                   convertBitCountsToNumber(bitCounts) >= k) {
+                // Update minimum length found so far
+                minLength = min(minLength, windowEnd - windowStart + 1);
+
+                // Remove leftmost number and shrink window
+                updateBitCounts(bitCounts, nums[windowStart], -1);
+                windowStart++;
             }
-            ++right;
+
+            windowEnd++;
         }
-        return ans == INT_MAX ? -1 : ans;
+
+        return minLength == INT_MAX ? -1 : minLength;
     }
-    
-    int helper(vector<int>& v) {
-        int ans = 0;
-        for (int i = 0; i < 32; ++i) {
-            if (v[i] > 0) ans += (1 << i);
-        }
-        return ans;
-    }
-    
-    void add(vector<int>& v, int i) {
-        int index = 0;
-        while (i > 0) {
-            v[index] += (i % 2);
-            i /= 2;
-            ++index;
+
+private:
+    // Updates bit count array when adding/removing a number from window
+    void updateBitCounts(vector<int>& bitCounts, int number, int delta) {
+        for (int bitPosition = 0; bitPosition < 32; bitPosition++) {
+            // Check if bit is set at current position
+            if ((number >> bitPosition) & 1) {
+                bitCounts[bitPosition] += delta;
+            }
         }
     }
-    
-    void remove(vector<int>& v, int i) {
-        int index = 0;
-        while (i > 0) {
-            v[index] -= (i % 2);
-            i /= 2;
-            ++index;
+
+    // Converts bit count array back to number using OR operation
+    int convertBitCountsToNumber(const vector<int>& bitCounts) {
+        int result = 0;
+        for (int bitPosition = 0; bitPosition < 32; bitPosition++) {
+            if (bitCounts[bitPosition] != 0) {
+                result |= 1 << bitPosition;
+            }
         }
+        return result;
     }
 };
