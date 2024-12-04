@@ -10,7 +10,7 @@ public:
         while (p1 < m && p2 < n) {
             if (str1[p1] == str2[p2] ||
                 str1[p1] + 1 == str2[p2] || 
-                (str1[p1] == 'z' && str2[p2] == 'a')) {
+                (str1[p1] - 25 == str2[p2])) { // 'z' -> 'a' case
                     ++p2;
             }
             ++p1;
