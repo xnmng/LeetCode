@@ -1,20 +1,21 @@
 class Solution {
 public:
     long long findScore(vector<int>& nums) {
+        int n = nums.size();
         vector<pair<int,int>> v;
-        v.reserve(nums.size());
-        for (auto i = 0; i < nums.size(); ++i) {
+        v.reserve(n);
+        for (auto i = 0; i < n; ++i) {
             v.emplace_back(nums[i], i);
         }
         sort(v.begin(), v.end());
-        unordered_set<int> s;
+        vector<bool> s(n, false);
         long long ans{0};
         for (auto& [value, index] : v) {
-            if (s.find(index) != s.end()) continue;
+            if (s[index]) continue;
             ans += value;
-            s.insert(index);
-            s.insert(index+1);
-            s.insert(index-1);
+            s[index] = true;
+            if (index + 1 < n) s[index + 1] = true;
+            if (index - 1 >= 0) s[index - 1] = true;
         }
         return ans;
     }
