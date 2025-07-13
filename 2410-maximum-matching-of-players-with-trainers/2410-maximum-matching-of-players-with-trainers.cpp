@@ -1,5 +1,7 @@
 class Solution {
 public:
+    // sort both inputs and greedily match
+    // if no match possible, skip this trainer
     int matchPlayersAndTrainers(vector<int>& players, vector<int>& trainers) {
         sort(players.begin(), players.end());
         sort(trainers.begin(), trainers.end());
