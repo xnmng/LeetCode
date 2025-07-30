@@ -1,32 +1,27 @@
 class Solution {
 public:
+    // because of AND properties, the longest subarray with AND
+    // is the one where all values are maxVal!
+    // because a & b <= min(a, b)
+    //
+    // count longest streak of maximum
     int longestSubarray(vector<int>& nums) {
-        auto maxVal{0};
-        auto maxCount{0};
-        auto val{0};
-        auto count{0};
-        for (auto i = 0; i < nums.size(); ++i) {
-            if (nums[i] > val) {
-                val = nums[i];
+        int ans = 0;
+        int maximum = 0;
+        int count = 0;
+        for (int i : nums) {
+            if (i == maximum) ++count;
+            else if (i > maximum) {
                 count = 1;
+                maximum = i;
+                ans = 0;
             }
-            else if (nums[i] == val && nums[i-1] == val) ++count;
             else {
-                if (val > maxVal) {
-                    maxVal = val;
-                    maxCount = count;            
-                }
-                if (val == maxVal) {
-                    maxCount = max(maxCount, count);
-                }
-                val = 0;
+                ans = max(ans, count);
                 count = 0;
             }
-            // cout << nums[i] << " " << val << " " << count << "\n";
         }
-        cout << val << " " << count << " " << maxVal << " " << maxCount << "\n";
-        if (val == maxVal) return max(count, maxCount);
-        return val > maxVal ? count : maxCount;
+        return max(ans, count);
     }
 };
 // [311155,311155,311155,311155,311155,311155,311155,311155,201191,311155]
