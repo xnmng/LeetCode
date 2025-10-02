@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/water-bottles-ii/">3100. Water Bottles II</a></h2><h3>Medium</h3><hr><div><p>You are given two integers <code>numBottles</code> and <code>numExchange</code>.</p>
+<h2><a href="https://leetcode.com/problems/water-bottles-ii/?envType=daily-question&envId=2025-10-02">3100. Water Bottles II</a></h2><h3>Medium</h3><hr><p>You are given two integers <code>numBottles</code> and <code>numExchange</code>.</p>
 
 <p><code>numBottles</code> represents the number of full water bottles that you initially have. In one operation, you can perform one of the following operations:</p>
 
@@ -13,15 +13,17 @@
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2024/01/28/exampleone1.png" style="width: 948px; height: 482px; padding: 10px; background: #fff; border-radius: .5rem;">
-<pre><strong>Input:</strong> numBottles = 13, numExchange = 6
+<img alt="" src="https://assets.leetcode.com/uploads/2024/01/28/exampleone1.png" style="width: 948px; height: 482px; padding: 10px; background: #fff; border-radius: .5rem;" />
+<pre>
+<strong>Input:</strong> numBottles = 13, numExchange = 6
 <strong>Output:</strong> 15
 <strong>Explanation:</strong> The table above shows the number of full water bottles, empty water bottles, the value of numExchange, and the number of bottles drunk.
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2024/01/28/example231.png" style="width: 990px; height: 642px; padding: 10px; background: #fff; border-radius: .5rem;">
-<pre><strong>Input:</strong> numBottles = 10, numExchange = 3
+<img alt="" src="https://assets.leetcode.com/uploads/2024/01/28/example231.png" style="width: 990px; height: 642px; padding: 10px; background: #fff; border-radius: .5rem;" />
+<pre>
+<strong>Input:</strong> numBottles = 10, numExchange = 3
 <strong>Output:</strong> 13
 <strong>Explanation:</strong> The table above shows the number of full water bottles, empty water bottles, the value of numExchange, and the number of bottles drunk.
 </pre>
@@ -33,4 +35,3 @@
 	<li><code>1 &lt;= numBottles &lt;= 100 </code></li>
 	<li><code>1 &lt;= numExchange &lt;= 100</code></li>
 </ul>
-</div>
