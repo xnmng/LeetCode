@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/adjacent-increasing-subarrays-detection-ii/">3350. Adjacent Increasing Subarrays Detection II</a></h2><h3>Medium</h3><hr><div><p>Given an array <code>nums</code> of <code>n</code> integers, your task is to find the <strong>maximum</strong> value of <code>k</code> for which there exist <strong>two</strong> adjacent subarrays of length <code>k</code> each, such that both subarrays are <strong>strictly</strong> <strong>increasing</strong>. Specifically, check if there are <strong>two</strong> subarrays of length <code>k</code> starting at indices <code>a</code> and <code>b</code> (<code>a &lt; b</code>), where:</p>
+<h2><a href="https://leetcode.com/problems/adjacent-increasing-subarrays-detection-ii/?envType=daily-question&envId=2025-10-15">3350. Adjacent Increasing Subarrays Detection II</a></h2><h3>Medium</h3><hr><p>Given an array <code>nums</code> of <code>n</code> integers, your task is to find the <strong>maximum</strong> value of <code>k</code> for which there exist <strong>two</strong> adjacent <span data-keyword="subarray-nonempty">subarrays</span> of length <code>k</code> each, such that both subarrays are <strong>strictly</strong> <strong>increasing</strong>. Specifically, check if there are <strong>two</strong> subarrays of length <code>k</code> starting at indices <code>a</code> and <code>b</code> (<code>a &lt; b</code>), where:</p>
 
 <ul>
 	<li>Both subarrays <code>nums[a..a + k - 1]</code> and <code>nums[b..b + k - 1]</code> are <strong>strictly increasing</strong>.</li>
@@ -49,4 +49,3 @@
 	<li><code>2 &lt;= nums.length &lt;= 2 * 10<sup>5</sup></code></li>
 	<li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
-</div>
