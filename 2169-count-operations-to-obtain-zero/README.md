@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/count-operations-to-obtain-zero/">2169. Count Operations to Obtain Zero</a></h2><h3>Easy</h3><hr><div><p>You are given two <strong>non-negative</strong> integers <code>num1</code> and <code>num2</code>.</p>
+<h2><a href="https://leetcode.com/problems/count-operations-to-obtain-zero/?envType=daily-question&envId=2025-11-09">2169. Count Operations to Obtain Zero</a></h2><h3>Easy</h3><hr><p>You are given two <strong>non-negative</strong> integers <code>num1</code> and <code>num2</code>.</p>
 
 <p>In one <strong>operation</strong>, if <code>num1 &gt;= num2</code>, you must subtract <code>num2</code> from <code>num1</code>, otherwise subtract <code>num1</code> from <code>num2</code>.</p>
 
@@ -11,7 +11,8 @@
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre><strong>Input:</strong> num1 = 2, num2 = 3
+<pre>
+<strong>Input:</strong> num1 = 2, num2 = 3
 <strong>Output:</strong> 3
 <strong>Explanation:</strong> 
 - Operation 1: num1 = 2, num2 = 3. Since num1 &lt; num2, we subtract num1 from num2 and get num1 = 2, num2 = 3 - 2 = 1.
@@ -23,7 +24,8 @@ So the total number of operations required is 3.
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre><strong>Input:</strong> num1 = 10, num2 = 10
+<pre>
+<strong>Input:</strong> num1 = 10, num2 = 10
 <strong>Output:</strong> 1
 <strong>Explanation:</strong> 
 - Operation 1: num1 = 10, num2 = 10. Since num1 == num2, we subtract num2 from num1 and get num1 = 10 - 10 = 0.
@@ -37,4 +39,3 @@ So the total number of operations required is 1.
 <ul>
 	<li><code>0 &lt;= num1, num2 &lt;= 10<sup>5</sup></code></li>
 </ul>
-</div>
