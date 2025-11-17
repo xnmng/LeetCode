@@ -1,13 +1,14 @@
 class Solution {
 public:
-    string smallestString(string s) {
-        auto left{0};
-        while (s[left] == 'a') ++left;
-        while (left < s.size()) {
-            if (s[left] == 'a') break;
-            --s[left];
-            ++left;
+    bool kLengthApart(vector<int>& nums, int k) {
+        auto prev{-k - 1};
+        for (auto i = 0; i < nums.size(); ++i) {
+            if (nums[i] == 1) {
+                // cout << i - prev - 1 << "\n";
+                if (i - prev - 1 < k) return false;
+                prev = i;
+            }
         }
-        return s;
+        return true;
     }
 };
