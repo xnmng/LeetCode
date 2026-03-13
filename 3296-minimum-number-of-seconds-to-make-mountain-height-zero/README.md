@@ -1,11 +1,11 @@
-<h2><a href="https://leetcode.com/problems/minimum-number-of-seconds-to-make-mountain-height-zero/">3296. Minimum Number of Seconds to Make Mountain Height Zero</a></h2><h3>Medium</h3><hr><div><p>You are given an integer <code>mountainHeight</code> denoting the height of a mountain.</p>
+<h2><a href="https://leetcode.com/problems/minimum-number-of-seconds-to-make-mountain-height-zero/?envType=daily-question&envId=2026-03-13">3296. Minimum Number of Seconds to Make Mountain Height Zero</a></h2><h3>Medium</h3><hr><p>You are given an integer <code>mountainHeight</code> denoting the height of a mountain.</p>
 
 <p>You are also given an integer array <code>workerTimes</code> representing the work time of workers in <strong>seconds</strong>.</p>
 
 <p>The workers work <strong>simultaneously</strong> to <strong>reduce</strong> the height of the mountain. For worker <code>i</code>:</p>
 
 <ul>
-	<li>To decrease the mountain's height by <code>x</code>, it takes <code>workerTimes[i] + workerTimes[i] * 2 + ... + workerTimes[i] * x</code> seconds. For example:
+	<li>To decrease the mountain&#39;s height by <code>x</code>, it takes <code>workerTimes[i] + workerTimes[i] * 2 + ... + workerTimes[i] * x</code> seconds. For example:
 
 	<ul>
 		<li>To reduce the height of the mountain by 1, it takes <code>workerTimes[i]</code> seconds.</li>
@@ -76,4 +76,3 @@
 	<li><code>1 &lt;= workerTimes.length &lt;= 10<sup>4</sup></code></li>
 	<li><code>1 &lt;= workerTimes[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
-</div>
