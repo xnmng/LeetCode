@@ -1,11 +1,13 @@
 class Solution {
 public:
-    // initially, lets'x' = 1, 'y' = -1, '.' = 0
+    // initially, let 'x' = 1, 'y' = -1, '.' = 0
     // then, submatrix should contain prefix sum of 0
     // to avoid counting submatrices with only '.', set x to 10001
     // that way, we can check if sum is (> 0) and (% 10000 == 0) instead
     // (10000 because the grid is max 1000 by 1000, 
     // avoid edge case where we have all x's and modulo wraps around)
+    // 
+    // use long to prevent overflow
     // O(mn) time, O(mn) space
     int numberOfSubmatrices(vector<vector<char>>& grid) {
         int m = grid.size();
