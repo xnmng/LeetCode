@@ -1,3 +1,4 @@
+// https://leetcode.com/problems/minimum-distance-to-the-target-element/discuss/1186927/C++-One-Pass-+-Optimization
 class Solution {
 public:
     int getMinDistance(vector<int>& nums, int target, int start) {
