@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int closetTarget(vector<string>& words, string target, int startIndex) {
+    int closestTarget(vector<string>& words, string target, int startIndex) {
         if (words[startIndex] == target) return 0;
         auto n{words.size()};
         auto prev{(startIndex - 1 + n) % n};
