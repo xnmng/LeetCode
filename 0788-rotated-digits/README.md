@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/rotated-digits/">788. Rotated Digits</a></h2><h3>Medium</h3><hr><p>An integer <code>x</code> is a <strong>good</strong> if after rotating each digit individually by 180 degrees, we get a valid number that is different from <code>x</code>. Each digit must be rotated - we cannot choose to leave it alone.</p>
+<h2><a href="https://leetcode.com/problems/rotated-digits/?envType=daily-question&envId=2026-05-02">788. Rotated Digits</a></h2><h3>Medium</h3><hr><p>An integer <code>x</code> is a <strong>good</strong> if after rotating each digit individually by 180 degrees, we get a valid number that is different from <code>x</code>. Each digit must be rotated - we cannot choose to leave it alone.</p>
 
 <p>A number is valid if each digit remains a digit after rotation. For example:</p>
 
