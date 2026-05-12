@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/minimum-initial-energy-to-finish-tasks/">1665. Minimum Initial Energy to Finish Tasks</a></h2><h3>Hard</h3><hr><div><p>You are given an array <code>tasks</code> where <code>tasks[i] = [actual<sub>i</sub>, minimum<sub>i</sub>]</code>:</p>
+<h2><a href="https://leetcode.com/problems/minimum-initial-energy-to-finish-tasks">1665. Minimum Initial Energy to Finish Tasks</a></h2><h3>Hard</h3><hr><p>You are given an array <code>tasks</code> where <code>tasks[i] = [actual<sub>i</sub>, minimum<sub>i</sub>]</code>:</p>
 
 <ul>
 	<li><code>actual<sub>i</sub></code> is the actual amount of energy you <strong>spend to finish</strong> the <code>i<sup>th</sup></code> task.</li>
@@ -14,7 +14,8 @@
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre><strong>Input:</strong> tasks = [[1,2],[2,4],[4,8]]
+<pre>
+<strong>Input:</strong> tasks = [[1,2],[2,4],[4,8]]
 <strong>Output:</strong> 8
 <strong>Explanation:</strong>
 Starting with 8 energy, we finish the tasks in the following order:
@@ -25,7 +26,8 @@ Notice that even though we have leftover energy, starting with 7 energy does not
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre><strong>Input:</strong> tasks = [[1,3],[2,4],[10,11],[10,12],[8,9]]
+<pre>
+<strong>Input:</strong> tasks = [[1,3],[2,4],[10,11],[10,12],[8,9]]
 <strong>Output:</strong> 32
 <strong>Explanation:</strong>
 Starting with 32 energy, we finish the tasks in the following order:
@@ -37,7 +39,8 @@ Starting with 32 energy, we finish the tasks in the following order:
 
 <p><strong class="example">Example 3:</strong></p>
 
-<pre><strong>Input:</strong> tasks = [[1,7],[2,8],[3,9],[4,10],[5,11],[6,12]]
+<pre>
+<strong>Input:</strong> tasks = [[1,7],[2,8],[3,9],[4,10],[5,11],[6,12]]
 <strong>Output:</strong> 27
 <strong>Explanation:</strong>
 Starting with 27 energy, we finish the tasks in the following order:
@@ -56,4 +59,3 @@ Starting with 27 energy, we finish the tasks in the following order:
 	<li><code>1 &lt;= tasks.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>1 &lt;= actual<sub>​i</sub>&nbsp;&lt;= minimum<sub>i</sub>&nbsp;&lt;= 10<sup>4</sup></code></li>
 </ul>
-</div>
