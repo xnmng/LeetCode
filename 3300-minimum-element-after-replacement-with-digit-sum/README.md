@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/minimum-element-after-replacement-with-digit-sum/">3300. Minimum Element After Replacement With Digit Sum</a></h2><h3>Easy</h3><hr><div><p>You are given an integer array <code>nums</code>.</p>
+<h2><a href="https://leetcode.com/problems/minimum-element-after-replacement-with-digit-sum">3300. Minimum Element After Replacement With Digit Sum</a></h2><h3>Easy</h3><hr><p>You are given an integer array <code>nums</code>.</p>
 
 <p>You replace each element in <code>nums</code> with the <strong>sum</strong> of its digits.</p>
 
@@ -48,4 +48,3 @@
 	<li><code>1 &lt;= nums.length &lt;= 100</code></li>
 	<li><code>1 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
-</div>
