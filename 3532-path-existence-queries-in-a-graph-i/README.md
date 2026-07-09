@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/path-existence-queries-in-a-graph-i/description/?slug=count-covered-buildings&region=global_v2">3532. Path Existence Queries in a Graph I</a></h2><h3>Medium</h3><hr><p>You are given an integer <code>n</code> representing the number of nodes in a graph, labeled from 0 to <code>n - 1</code>.</p>
+<h2><a href="https://leetcode.com/problems/path-existence-queries-in-a-graph-i">3532. Path Existence Queries in a Graph I</a></h2><h3>Medium</h3><hr><p>You are given an integer <code>n</code> representing the number of nodes in a graph, labeled from 0 to <code>n - 1</code>.</p>
 
 <p>You are also given an integer array <code>nums</code> of length <code>n</code> sorted in <strong>non-decreasing</strong> order, and an integer <code>maxDiff</code>.</p>
 
