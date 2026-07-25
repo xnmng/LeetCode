@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/maximum-product-of-two-digits/">3536. Maximum Product of Two Digits</a></h2><h3>Easy</h3><hr><p>You are given a positive integer <code>n</code>.</p>
+<h2><a href="https://leetcode.com/problems/maximum-product-of-two-digits">3536. Maximum Product of Two Digits</a></h2><h3>Easy</h3><hr><p>You are given a positive integer <code>n</code>.</p>
 
 <p>Return the <strong>maximum</strong> product of any two digits in <code>n</code>.</p>
 
